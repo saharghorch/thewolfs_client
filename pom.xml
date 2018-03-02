@@ -18,6 +18,11 @@
 		</dependency>
 
 		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId> hibernate-entitymanager</artifactId>
+		    <version>4.3.10.Final</version>
+		</dependency>
+		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-ejb-client-bom</artifactId>
 			<version>9.0.0.Alpha1</version>
