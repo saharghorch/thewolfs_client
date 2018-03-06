@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.Trader1Controller">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="23.0" layoutY="14.0" prefHeight="607.0" prefWidth="1115.0">
+         <children>
+            <AnchorPane layoutX="-32.0" layoutY="-10.0" prefHeight="85.0" prefWidth="1115.0" style="-fx-background-color: #09a3ae;">
+               <children>
+                  <Label layoutX="40.0" layoutY="34.0" text="Management Of Traders" textFill="#224d5b">
+                     <font>
+                        <Font name="Calibri Bold" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <GridPane layoutX="17.0" layoutY="120.0" opacity="0.87" prefHeight="232.0" prefWidth="266.0" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="810.0" AnchorPane.topAnchor="120.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="122.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="108.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Last Name:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Email:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="firstnametf" GridPane.columnIndex="1" />
+                  <TextField fx:id="lastnametf" prefHeight="25.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Level:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="emailtf" minWidth="20.0" prefHeight="25.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="First Name:" textAlignment="RIGHT" textOverrun="CLIP">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Password:" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="leveltf" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="passwordtf" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <TableView fx:id="tableviewtrader" layoutX="383.0" layoutY="120.0" onMouseClicked="#afficherrevenu" prefHeight="337.0" prefWidth="659.0">
+               <columns>
+                  <TableColumn fx:id="firstnamecol" prefWidth="118.0" text="First Name" />
+                  <TableColumn fx:id="lastnamecol" prefWidth="126.0" text="Last Name" />
+                  <TableColumn fx:id="emailcol" minWidth="0.0" prefWidth="159.0" text="Email" />
+                  <TableColumn fx:id="passwordcol" minWidth="0.0" prefWidth="137.0" text="Password" />
+                  <TableColumn fx:id="levelcol" prefWidth="118.0" text="Level" />
+               </columns>
+            </TableView>
+            <GridPane layoutX="20.0" layoutY="423.0" prefHeight="40.0" prefWidth="313.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="addTraderBtn" mnemonicParsing="false" onAction="#addTrader" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #09a3ae;" text="Add Trader" />
+                  <Button fx:id="updateTraderBtn" mnemonicParsing="false" onAction="#updateTrader" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #09a3ae;" text="Update Trader" GridPane.columnIndex="1" />
+                  <Button fx:id="removeTraderBtn" mnemonicParsing="false" onAction="#removeTrader" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #09a3ae;" text="Remove Trader" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+            <Button fx:id="searchTraderBtn" layoutX="342.0" layoutY="484.0" mnemonicParsing="false" onAction="#searchTrader" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #09a3ae;" text="Search" />
+            <Label layoutX="14.0" layoutY="489.0" text="Enter the name of the trader:" />
+            <TextField fx:id="cherchTF" layoutX="177.0" layoutY="487.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
