@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.AccountInterfaceController">
+   <children>
+      <Button fx:id="addAccountBtn" layoutX="51.0" layoutY="386.0" mnemonicParsing="false" onAction="#addAccount" style="-fx-background-color: #09a3ae;" text="Add New Account" />
+      <Button fx:id="deleteAccountBtn" layoutX="53.0" layoutY="481.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #09a3ae;" text="Remove Account" />
+      <Button fx:id="updateAccountBtn" layoutX="54.0" layoutY="433.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #09a3ae;" text="Update Account" />
+      <Label layoutX="37.0" layoutY="188.0" text="Amount" />
+      <Label layoutX="37.0" layoutY="239.0" text="Currency" />
+      <Label layoutX="40.0" layoutY="288.0" text="isActive" />
+      <TextField fx:id="amountTF" layoutX="108.0" layoutY="186.0" />
+      <ComboBox fx:id="currencyCB" layoutX="107.0" layoutY="237.0" prefWidth="150.0" />
+      <ComboBox fx:id="isActiveCB" layoutX="107.0" layoutY="287.0" prefWidth="150.0" />
+      <TableView fx:id="tableview" layoutX="279.0" layoutY="135.0" prefHeight="470.0" prefWidth="445.0">
+         <columns>
+            <TableColumn fx:id="amountAccountCol" prefWidth="114.0" text="Amount" />
+            <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="116.0" text="Currency" />
+            <TableColumn fx:id="isActiveAccountCol" prefWidth="123.0" text="isActive" />
+            <TableColumn fx:id="idAccountCol" prefWidth="107.0" text="IdAccount" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchAccountTF" layoutX="395.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="searchAccount" text="Search For Account" />
+      <Button fx:id="searchForAccountBtn" layoutX="570.0" layoutY="94.0" mnemonicParsing="false" onAction="#findAccountByAmount" style="-fx-background-color: #09a3ae;" text="Search" />
+      <AnchorPane layoutX="-7.0" prefHeight="82.0" prefWidth="742.0" style="-fx-background-color: #09a3ae;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Admin" />
+            <Label layoutX="22.0" layoutY="33.0" text="Management Of Accounts" textFill="#224d5b">
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
