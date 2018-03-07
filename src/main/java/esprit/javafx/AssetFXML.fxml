@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.AssetFXMLController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="747.0">
+         <children>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" />
+            <TableView fx:id="tableviewasset" layoutX="165.0" layoutY="290.0" onMouseClicked="#mouse" prefHeight="200.0" prefWidth="344.0">
+               <columns>
+                  <TableColumn fx:id="colstartdate" prefWidth="99.0" text="Start Date " />
+                  <TableColumn fx:id="colexpirationdate" prefWidth="127.0" text="Expiration date" />
+                  <TableColumn id="sharesnumber" fx:id="colsharesnumber" prefWidth="116.0" text="Shares number" />
+               </columns>
+            </TableView>
+            <Button fx:id="btndelete" layoutX="297.0" layoutY="185.0" mnemonicParsing="false" onAction="#deletebtn" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="447.0" layoutY="185.0" mnemonicParsing="false" onAction="#updatebtn" text="Update" />
+            <TextField fx:id="textfieldsharesnumber" layoutX="262.0" layoutY="8.0" />
+            <Button fx:id="btnajout" layoutX="162.0" layoutY="185.0" mnemonicParsing="false" onAction="#onclickadd" text="Add" />
+            <Label fx:id="startdatelabel" layoutX="164.0" layoutY="60.0" prefHeight="17.0" prefWidth="72.0" text=" Start Date :" />
+            <Label fx:id="expirationdatelabel" layoutX="153.0" layoutY="108.0" text="Expiration Date :" />
+            <DatePicker fx:id="picstartdate" layoutX="250.0" layoutY="56.0" />
+            <DatePicker fx:id="picexpirationdate" layoutX="250.0" layoutY="104.0" />
+            <TextField fx:id="recherche" layoutX="248.0" layoutY="244.0" />
+            <Label fx:id="sharesnumberlabel" layoutX="153.0" layoutY="1.0" prefHeight="40.0" prefWidth="120.0" text="      Shares number : " />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
