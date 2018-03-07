@@ -132,6 +132,7 @@ public class Trader1Controller implements Initializable {
 		Trader trader = new Trader(firstnametf.getText(), lastnametf.getText(), emailtf.getText(), passwordtf.getText(),
 				leveltf.getValue());
 		boolean valide1 = true;
+		
 		if (firstnametf.getText().equals("")) {
 
 			valide1 = false;
@@ -152,7 +153,22 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
-		if (valide1 == true) {
+		
+		Trader tradertest =new Trader();
+		tradertest=proxy.Traderexiste(trader);
+		
+			
+		
+		if (valide1 == false) {
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Trader adding");
+			alert.setHeaderText("you have an empty field");
+			alert.showAndWait();			
+			}		
+		else{
+			
+				
 			proxy.addTrader(trader);
 			List<Trader> list = proxy.dislayTrader();
 			ObservableList<Trader> items = FXCollections.observableArrayList(list);
@@ -166,16 +182,11 @@ public class Trader1Controller implements Initializable {
 			alert.setTitle("Trader adding");
 			alert.setHeaderText("succesful");
 			alert.showAndWait();
+			}
 		}
-		else{
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Trader adding");
-			alert.setHeaderText("you have an empty field");
-			alert.showAndWait();
-			
-		}
+		
 
-	}
+	
 
 	@FXML
 	private void updateTrader(ActionEvent event) throws NamingException {
