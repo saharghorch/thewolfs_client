@@ -1,5 +1,6 @@
 package esprit.javafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,7 +15,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -24,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import tn.esprit.thewolfs_server.entity.Level;
 import tn.esprit.thewolfs_server.entity.Trader;
 import tn.esprit.thewolfs_server.services.TraderServiceRemote;
@@ -66,6 +73,12 @@ public class Trader1Controller implements Initializable {
 	private Button refreshbtn1;
 	@FXML
 	private TextField idTraderTF;
+	@FXML
+    private Button generatestatbtn;
+
+    @FXML
+    private Button refreshbtn;
+
 
 	private ObservableList<Level> unitex = FXCollections.observableArrayList(Level.firstLevel, Level.secondLevel,
 			Level.thirdLevel);
@@ -157,7 +170,8 @@ public class Trader1Controller implements Initializable {
 		Trader tradertest =new Trader();
 		tradertest=proxy.Traderexiste(trader);
 		
-			
+		
+		
 		
 		if (valide1 == false) {
 			
@@ -166,23 +180,31 @@ public class Trader1Controller implements Initializable {
 			alert.setHeaderText("you have an empty field");
 			alert.showAndWait();			
 			}		
-		else{
-			
+		else{		
+				if(tradertest!=null){	
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Trader adding");
+					alert.setHeaderText("already exists");
+					alert.showAndWait();
+					System.out.println(tradertest);	
 				
-			proxy.addTrader(trader);
-			List<Trader> list = proxy.dislayTrader();
-			ObservableList<Trader> items = FXCollections.observableArrayList(list);
-			tableviewtrader.setItems(items);
-			firstnametf.setText("");
-			lastnametf.setText("");
-			emailtf.setText("");
-			passwordtf.setText("");
-			leveltf.setValue(null);
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Trader adding");
-			alert.setHeaderText("succesful");
-			alert.showAndWait();
+				}else{
+					proxy.addTrader(trader);
+					List<Trader> list = proxy.dislayTrader();
+					ObservableList<Trader> items = FXCollections.observableArrayList(list);
+					tableviewtrader.setItems(items);
+					firstnametf.setText("");
+					lastnametf.setText("");
+					emailtf.setText("");
+					passwordtf.setText("");
+					leveltf.setValue(null);
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Trader adding");
+					alert.setHeaderText("succesful");
+					alert.showAndWait();
 			}
+			}
+		
 		}
 		
 
@@ -223,6 +245,7 @@ public class Trader1Controller implements Initializable {
 		}
 		
 		if (valide1==true){
+	
 		proxy.updateTrader(trader);
 		List<Trader> list = proxy.dislayTrader();
 		ObservableList<Trader> items = FXCollections.observableArrayList(list);
@@ -293,8 +316,70 @@ public class Trader1Controller implements Initializable {
 	}
 
 	@FXML
-	private void refreshTrader(ActionEvent event) {
+	private void refreshTableview(ActionEvent event) throws NamingException {
+		
+		
+		leveltf.setItems(unitex);
+		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+
+		try {
+			Context context = new InitialContext();
+			TraderServiceRemote proxy = (TraderServiceRemote) context.lookup(jndiname);
+
+			List<Trader> traders = proxy.dislayTrader();
+			firstnamecol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+			lastnamecol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
+			emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
+			passwordcol.setCellValueFactory(new PropertyValueFactory<>("password"));
+			levelcol.setCellValueFactory(new PropertyValueFactory<>("level"));
+			ObservableList<Trader> items = FXCollections.observableArrayList(traders);
+			tableviewtrader.setItems(items);
+			firstnametf.setText("");
+			lastnametf.setText("");
+			emailtf.setText("");
+			passwordtf.setText("");
+			leveltf.setValue(null);
+
+		} catch (NamingException e) {
+
+			e.printStackTrace();
+		}
+		tableviewtrader.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+			showdetails(newValue);
+		}));
 
 	}
+	  @FXML
+	    void generatestat(ActionEvent event) throws IOException {
+		  	
+		  Stage stage = new Stage();
+          //((Node) event.getSource()).getScene().getWindow().hide();
+           Parent root = FXMLLoader.load(getClass().getResource("../javafx/TraderStat.fxml"));
+           Scene scene = new Scene(root);
+           stage.setScene(scene);
+           stage.show();
+	    }
+	/*  @FXML
+	    private void generatepdf(ActionEvent event) throws Exception {
+		  String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+			
+			TraderServiceRemote proxy;
+			try {
+				Context context = new InitialContext();
+				proxy = (TraderServiceRemote) context.lookup(jndiname);
+				proxy.createPDF();
+			} catch (NamingException e) {
+				
+				e.printStackTrace();
+			}
+		
+		  
+	        Alert alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle("Information Dialog");
+	            alert.setHeaderText(null);
+	            alert.setContentText("Le PDF a été génerer avec succés!");
+
+	            alert.showAndWait();
+	    }*/
 
 }
