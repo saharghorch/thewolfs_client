@@ -31,13 +31,13 @@ AccountServiceRemote proxy=(AccountServiceRemote) context.lookup(jndiName);
 //proxy.updateAccount(account);
 //Account accountDisplay=proxy.displayAccountById(16);
 //System.out.println(accountDisplay);
-/*
+
 List<Account> accounts= proxy.displayAllAccounts();
 for(Account a : accounts)
 {
 	System.out.println(a);
 }
-*/
+
 
 //System.out.println(proxy.findAccountByAmount(6000f));
 

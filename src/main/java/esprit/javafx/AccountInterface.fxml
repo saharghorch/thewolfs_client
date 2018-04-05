@@ -20,12 +20,13 @@
       <TextField fx:id="amountTF" layoutX="108.0" layoutY="186.0" />
       <ComboBox fx:id="currencyCB" layoutX="107.0" layoutY="237.0" prefWidth="150.0" />
       <ComboBox fx:id="isActiveCB" layoutX="107.0" layoutY="287.0" prefWidth="150.0" />
-      <TableView fx:id="tableview" layoutX="279.0" layoutY="135.0" prefHeight="470.0" prefWidth="445.0">
+      <TableView fx:id="tableview" layoutX="285.0" layoutY="129.0" prefHeight="470.0" prefWidth="435.0">
          <columns>
-            <TableColumn fx:id="amountAccountCol" prefWidth="114.0" text="Amount" />
-            <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="116.0" text="Currency" />
-            <TableColumn fx:id="isActiveAccountCol" prefWidth="123.0" text="isActive" />
-            <TableColumn fx:id="idAccountCol" prefWidth="107.0" text="IdAccount" />
+            <TableColumn fx:id="amountAccountCol" prefWidth="98.0" text="Amount" />
+            <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="88.0" text="Currency" />
+            <TableColumn fx:id="isActiveAccountCol" prefWidth="75.0" text="isActive" />
+            <TableColumn fx:id="idAccountCol" prefWidth="83.0" text="IdAccount" />
+            <TableColumn fx:id="idTraderCol" prefWidth="83.0" text="IdTrader" />
          </columns>
       </TableView>
       <TextField fx:id="searchAccountTF" layoutX="395.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="searchAccount" text="Search For Account" />
@@ -40,5 +41,13 @@
             </Label>
          </children>
       </AnchorPane>
+      <Button fx:id="assignAccountToTraderBtn" layoutX="2.0" layoutY="537.0" mnemonicParsing="false" onAction="#assignAccountToTrader" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #09a3ae;" text="Assign Account To Trader" textFill="#f83b3b">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="idTraderTF" layoutX="189.0" layoutY="537.0" prefHeight="25.0" prefWidth="59.0" />
+      <Label layoutX="40.0" layoutY="338.0" text="idTrader" />
+      <ComboBox fx:id="idTraderCB" layoutX="106.0" layoutY="335.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

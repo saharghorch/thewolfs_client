@@ -94,7 +94,7 @@ public class PricingInterfaceController implements Initializable {
 		if(STF.getText().equals("") || XTF.getText().equals("") || sigmaTF.getText().equals("") || rTF.getText().equals("") || tTF.getText().equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle(" Pricing Exception ");
-			alert.setHeaderText("you have an empty field");
+			alert.setHeaderText("you have at least an empty field");
 			alert.showAndWait();
 		}
 		else{

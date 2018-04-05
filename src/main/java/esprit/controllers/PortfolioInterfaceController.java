@@ -85,6 +85,8 @@ public class PortfolioInterfaceController implements Initializable {
 			String jndiName="thewolfs_server-ear/thewolfs_server-ejb/PortfolioService!tn.esprit.thewolfs_server.services.PortfolioServiceRemote";
 			Context context=new InitialContext();
 			PortfolioServiceRemote proxy=(PortfolioServiceRemote) context.lookup(jndiName);
+			LocalDate today = LocalDate.now();
+    
 			if(tableview.getSelectionModel().getSelectedItem() != null){
 	    		Alert alert = new Alert(Alert.AlertType.WARNING);
 	            alert.setTitle(" Portfolio Adding Error ");
@@ -95,18 +97,29 @@ public class PortfolioInterfaceController implements Initializable {
 				if(cashPortfolioTF.getText().equals("") || creationDatePortfolioTF.getValue()== null){
 	    			Alert alert = new Alert(AlertType.WARNING);
 	    			alert.setTitle(" Portfolio Adding Error ");
-	    			alert.setHeaderText("you have an empty field");
+	    			alert.setHeaderText("you have at least an empty field");
 	    			alert.showAndWait();
 	    		}
 				else{
-					LocalDate localDate =creationDatePortfolioTF.getValue();
-			        java.sql.Date creationDate = java.sql.Date.valueOf(localDate);
-					Portfolio portfolio=new Portfolio(creationDate,Float.parseFloat(cashPortfolioTF.getText()));
-					proxy.addPortfolio(portfolio);
-					Alert alert = new Alert(AlertType.INFORMATION);
-		    		alert.setTitle("Portfolio Adding");
-		    		alert.setHeaderText("Succesful :) ");
-		    		alert.showAndWait();
+					  if (today.isAfter(creationDatePortfolioTF.getValue())) {
+			                Alert al = new Alert(Alert.AlertType.WARNING);
+			                al.setTitle("  Portfolio Adding Error ");
+			                al.setHeaderText("Inconvenable Creation Date ");
+			                al.showAndWait();
+					  }
+					  else{
+						    LocalDate localDate =creationDatePortfolioTF.getValue();
+					        java.sql.Date creationDate = java.sql.Date.valueOf(localDate);
+							Portfolio portfolio=new Portfolio(creationDate,Float.parseFloat(cashPortfolioTF.getText()));
+							proxy.addPortfolio(portfolio);
+							Alert alert = new Alert(AlertType.INFORMATION);
+				    		alert.setTitle("Portfolio Adding");
+				    		alert.setHeaderText("Succesful :) ");
+				    		alert.showAndWait();
+						  
+					  }
+					
+					
 				}
 			}
 			
@@ -149,6 +162,7 @@ public class PortfolioInterfaceController implements Initializable {
 	    	String jndiName="thewolfs_server-ear/thewolfs_server-ejb/PortfolioService!tn.esprit.thewolfs_server.services.PortfolioServiceRemote";
 			Context context=new InitialContext();
 			PortfolioServiceRemote proxy=(PortfolioServiceRemote) context.lookup(jndiName);
+			LocalDate today = LocalDate.now();
 			if(tableview.getSelectionModel().getSelectedItem() == null){
 	    		Alert alert = new Alert(Alert.AlertType.WARNING);
 	            alert.setTitle(" Portfolio Updating Error ");
@@ -160,20 +174,29 @@ public class PortfolioInterfaceController implements Initializable {
 				if(cashPortfolioTF.getText().equals("") || creationDatePortfolioTF.getValue()== null){
 	    			Alert alert = new Alert(AlertType.WARNING);
 	    			alert.setTitle(" Portfolio Updating Error ");
-	    			alert.setHeaderText("you have an empty field");
+	    			alert.setHeaderText("you have at least an empty field");
 	    			alert.showAndWait();
 	    		}
 				
 				else{
-					LocalDate localDate =creationDatePortfolioTF.getValue();
-			        java.sql.Date creationDate = java.sql.Date.valueOf(localDate);
-					Portfolio portfolio=new Portfolio(creationDate,Float.parseFloat(cashPortfolioTF.getText()));
-					portfolio.setId(tableview.getSelectionModel().getSelectedItem().getId());
-			        proxy.updatePortfolio(portfolio);
-			        Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("Portfolio Updating");
-					alert.setHeaderText("Succesful :) ");
-					alert.showAndWait();
+					 if (today.isAfter(creationDatePortfolioTF.getValue())) {
+			                Alert al = new Alert(Alert.AlertType.WARNING);
+			                al.setTitle("  Portfolio Updating Error ");
+			                al.setHeaderText("Inconvenable Creation Date ");
+			                al.showAndWait();
+					  }
+					 else{
+							LocalDate localDate =creationDatePortfolioTF.getValue();
+					        java.sql.Date creationDate = java.sql.Date.valueOf(localDate);
+							Portfolio portfolio=new Portfolio(creationDate,Float.parseFloat(cashPortfolioTF.getText()));
+							portfolio.setId(tableview.getSelectionModel().getSelectedItem().getId());
+					        proxy.updatePortfolio(portfolio);
+					        Alert alert = new Alert(AlertType.INFORMATION);
+							alert.setTitle("Portfolio Updating");
+							alert.setHeaderText("Succesful :) ");
+							alert.showAndWait(); 
+					 }
+				
 				}
 			}
 			

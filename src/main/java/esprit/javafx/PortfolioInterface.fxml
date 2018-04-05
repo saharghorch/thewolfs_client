@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.PortfolioInterfaceController">
    <children>
-      <AnchorPane prefHeight="608.0" prefWidth="725.0">
+      <AnchorPane prefHeight="608.0" prefWidth="738.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="addPortfolioBtn" layoutX="69.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPortfolio" style="-fx-background-color: #09a3ae;" text="Add New Portfolio" />
             <Button fx:id="deletePortfolioBtn" layoutX="67.0" layoutY="480.0" mnemonicParsing="false" onAction="#removePortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #09a3ae;" text="Remove Portfolio" />
