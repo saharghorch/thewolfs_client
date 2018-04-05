@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="562.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.TraderStatController">
+<AnchorPane prefHeight="562.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.TraderStatController">
    <children>
       <PieChart fx:id="chart1" layoutX="32.0" layoutY="51.0" prefHeight="386.0" prefWidth="696.0" />
       <Label fx:id="labelstat" layoutX="240.0" layoutY="458.0" text="label" textFill="#eb0202">
