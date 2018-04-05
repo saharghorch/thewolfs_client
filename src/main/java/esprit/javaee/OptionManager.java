@@ -18,6 +18,9 @@ public class OptionManager {
 	public static void main(String[] args) throws NamingException {
 	String jndiname="thewolfs_server-ear/thewolfs_server-ejb/OptionsManager!tn.esprit.thewolfs_server.services.OptionsRemote";
 		Context context = new InitialContext();
+
+		//OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
+
 		OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 		
 		Options option = new Options();
@@ -26,7 +29,7 @@ public class OptionManager {
 		option.setExpiration_date(null);
 		option.setType(Type.Call);
 		option.setStatus(Status.Canceled);
-		option.setAsset(null);
+		//option.setAsset(null);
 		option.setTrader(null);
 		option.setCounterparty(null);
 		option.setUser(null);
@@ -40,7 +43,7 @@ public class OptionManager {
 	op.setExpiration_date(null);
 	op.setType(Type.Put);
 	op.setStatus(Status.onHold);
-	op.setAsset(null);
+	//op.setAsset(null);
 	op.setTrader(null);
 	op.setCounterparty(null);
 	op.setUser(null);
@@ -52,7 +55,7 @@ public class OptionManager {
 	
 //Options opp = proxy.getOptionById(1);
 List<Options> arr = new ArrayList();
-arr= proxy.findAll();
+//arr= proxy.findAll();
 System.out.println(arr);
 
 //proxy.UpdateOptionStatus(OptionIddd);	
