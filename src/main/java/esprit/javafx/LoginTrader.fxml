@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="512.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.LoginTraderController">
+   <children>
+      <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="IDECA 2.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+      </JFXToolbar>
+      <AnchorPane fx:id="holderPane" layoutX="140.0" layoutY="38.0" prefHeight="713.0" prefWidth="409.0">
+         <children>
+            <JFXTextField fx:id="emailTF" labelFloat="true" layoutX="-46.0" layoutY="160.0" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Email" unFocusColor="#4059a9">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="passwordTF" labelFloat="true" layoutX="-50.0" layoutY="291.0" maxWidth="370.0" minWidth="357.0" prefHeight="31.0" prefWidth="370.0" promptText="Password">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXPasswordField>
+            <Button fx:id="loginBtn" layoutX="51.0" layoutY="402.0" mnemonicParsing="false" onAction="#login" prefHeight="60.0" prefWidth="169.0" style="-fx-background-color: #2A3F54;" text="Connexion" textFill="#fff8f8" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="145.0" layoutY="38.0" />
+      <Label layoutY="42.0" prefHeight="60.0" prefWidth="549.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="INTELLiXX" />
+   </children>
+</AnchorPane>
