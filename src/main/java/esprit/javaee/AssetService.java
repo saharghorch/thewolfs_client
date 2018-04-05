@@ -1,18 +1,13 @@
 package esprit.javaee;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Asset;
-
-import tn.esprit.thewolfs_server.entity.Watchlist;
 import tn.esprit.thewolfs_server.services.AssetServiceRemote;
-import tn.esprit.thewolfs_server.services.WatchlistServiceRemote;
 
 public class AssetService {
 

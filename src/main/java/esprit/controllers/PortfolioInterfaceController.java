@@ -1,28 +1,27 @@
 package esprit.controllers;
 import java.net.URL;
-import java.util.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Portfolio;
-import tn.esprit.thewolfs_server.services.AccountServiceRemote;
 import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
 
 public class PortfolioInterfaceController implements Initializable {

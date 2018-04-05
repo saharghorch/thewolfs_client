@@ -6,7 +6,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Watchlist;
 import tn.esprit.thewolfs_server.services.WatchlistServiceRemote;
 

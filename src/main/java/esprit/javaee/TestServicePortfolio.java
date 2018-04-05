@@ -1,18 +1,15 @@
 package esprit.javaee;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import tn.esprit.thewolfs_server.entity.Account;
-import tn.esprit.thewolfs_server.entity.Options;
 import tn.esprit.thewolfs_server.entity.Portfolio;
 import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 public class TestServicePortfolio {
 
 	public static void main(String[] args) throws NamingException, ParseException{

@@ -1,16 +1,14 @@
 package esprit.javaee;
 import java.io.IOException;
-import java.util.concurrent.Exchanger;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 
 

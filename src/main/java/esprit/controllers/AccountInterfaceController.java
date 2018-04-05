@@ -1,43 +1,30 @@
 package esprit.controllers;
-import java.io.IOException;
 //import java.awt.Button;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.swing.plaf.RootPaneUI;
-import esprit.javafx.*;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.scene.Node;
 import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Activity;
 import tn.esprit.thewolfs_server.entity.Currency;
-import tn.esprit.thewolfs_server.entity.Trader;
 import tn.esprit.thewolfs_server.services.AccountServiceRemote;
-import tn.esprit.thewolfs_server.services.TraderServiceRemote;
 
 public class AccountInterfaceController implements Initializable{
 

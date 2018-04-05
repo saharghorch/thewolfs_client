@@ -6,11 +6,7 @@
 package esprit.controllers;
 
 import java.net.URL;
-
-
-
 import java.util.List;
-
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -18,14 +14,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
