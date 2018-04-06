@@ -9,7 +9,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import tn.esprit.thewolfs_server.services.TraderServiceRemote;
@@ -26,6 +28,8 @@ public class TraderStatController implements Initializable {
 
     @FXML
     private PieChart chart1;
+    @FXML
+    private LineChart<String, Number> lineChart;
 
     @FXML
     private Label labelstat;
@@ -40,11 +44,19 @@ public class TraderStatController implements Initializable {
 			Context context = new InitialContext();
 			proxy = (TraderServiceRemote) context.lookup(jndiname);
 			
-
+           //Pie Chart
 	        ObservableList<PieChart.Data> pieChartData = null;
 	        pieChartData = FXCollections.observableArrayList(new PieChart.Data("First Level ",proxy.calculerLevel1()),new PieChart.Data("Second Level",proxy.calculerLevel2()),new PieChart.Data("Third Level", proxy.calculerLevel3()));
 	        
 	        chart1.setData(pieChartData);
+	        
+	        //Line Data
+	        XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
+	        lineChart.getData().clear();
+	        series.getData().add(new XYChart.Data<String, Number>("Level 1",proxy.calculerLevel1()));
+	        series.getData().add(new XYChart.Data<String, Number>("Level 2",proxy.calculerLevel2()));
+	        series.getData().add(new XYChart.Data<String, Number>("Level 3",proxy.calculerLevel3()));
+	        lineChart.getData().add(series);
 		} catch (NamingException e) {
 			
 			e.printStackTrace();

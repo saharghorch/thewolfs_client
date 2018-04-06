@@ -44,6 +44,8 @@ public class Trader1Controller implements Initializable {
 	@FXML
 	private TextField emailtf;
 	@FXML
+	private TextField soldetf;
+	@FXML
 	private ComboBox<Level> leveltf;
 	@FXML
 	private TextField passwordtf;
@@ -62,6 +64,8 @@ public class Trader1Controller implements Initializable {
 	@FXML
 	private TableColumn<Trader, ?> levelcol;
 	@FXML
+	private TableColumn<Trader, ?> soldecol;
+	@FXML
 	private Button addTraderBtn;
 	@FXML
 	private Button updateTraderBtn;
@@ -78,10 +82,11 @@ public class Trader1Controller implements Initializable {
 
     @FXML
     private Button refreshbtn;
+    
+    
+    private static Level level_Trader;
 
 
-	private ObservableList<Level> unitex = FXCollections.observableArrayList(Level.firstLevel, Level.secondLevel,
-			Level.thirdLevel);
 	ObservableList<Trader> data = FXCollections.observableArrayList();
 
 	/**
@@ -92,7 +97,7 @@ public class Trader1Controller implements Initializable {
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
-		leveltf.setItems(unitex);
+		
 		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 
 		try {
@@ -105,6 +110,8 @@ public class Trader1Controller implements Initializable {
 			emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
 			passwordcol.setCellValueFactory(new PropertyValueFactory<>("password"));
 			levelcol.setCellValueFactory(new PropertyValueFactory<>("level"));
+			soldecol.setCellValueFactory(new PropertyValueFactory<>("solde"));
+			
 			ObservableList<Trader> items = FXCollections.observableArrayList(traders);
 			tableviewtrader.setItems(items);
 
@@ -125,6 +132,7 @@ public class Trader1Controller implements Initializable {
 		emailtf.setText(trader.getEmail());
 		passwordtf.setText(trader.getPassword());
 		leveltf.setValue(trader.getLevel());
+		soldetf.setText(trader.getSolde().toString());
 
 	}
 
@@ -142,8 +150,16 @@ public class Trader1Controller implements Initializable {
 		Context context = new InitialContext();
 		TraderServiceRemote proxy = (TraderServiceRemote) context.lookup(jndiname);
 
-		Trader trader = new Trader(firstnametf.getText(), lastnametf.getText(), emailtf.getText(), passwordtf.getText(),
-				leveltf.getValue());
+		Trader trader = new Trader(firstnametf.getText(), lastnametf.getText(),
+				                 emailtf.getText(),  passwordtf.getText(),level_Trader,
+				                 Float.parseFloat(soldetf.getText()));
+		
+		if (trader.getSolde()<10000){
+			level_Trader=Level.firstLevel;
+		}else if(trader.getSolde()>100000 && trader.getSolde()<1000000){
+			level_Trader=Level.secondLevel;
+		}else {level_Trader=Level.thirdLevel;}
+		trader.setLevel(level_Trader);
 		boolean valide1 = true;
 		
 		if (firstnametf.getText().equals("")) {
@@ -162,7 +178,11 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
-		if (leveltf.getValue()==null) {
+		/*if (leveltf.getValue()==null) {
+
+			valide1 = false;
+		}*/
+		if (soldetf.getText().equals("")) {
 
 			valide1 = false;
 		}
@@ -198,6 +218,7 @@ public class Trader1Controller implements Initializable {
 					emailtf.setText("");
 					passwordtf.setText("");
 					leveltf.setValue(null);
+					soldetf.setText("");
 					Alert alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("Trader adding");
 					alert.setHeaderText("succesful");
@@ -216,9 +237,10 @@ public class Trader1Controller implements Initializable {
 		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 		Context context = new InitialContext();
 		TraderServiceRemote proxy = (TraderServiceRemote) context.lookup(jndiname);
-
-		Trader trader = new Trader(firstnametf.getText(), lastnametf.getText(), emailtf.getText(), passwordtf.getText(),
-				leveltf.getValue());
+         
+		Trader trader = new Trader(firstnametf.getText(), lastnametf.getText(),
+                emailtf.getText(),  passwordtf.getText(),level_Trader,
+                Float.parseFloat(soldetf.getText()));
 		trader.setId(tableviewtrader.getSelectionModel().getSelectedItem().getId());
 		
 		
@@ -243,6 +265,9 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
+		if(soldetf.getText().equals("")){
+			valide1 = false;
+		}
 		
 		if (valide1==true){
 	
@@ -255,6 +280,7 @@ public class Trader1Controller implements Initializable {
 		emailtf.setText("");
 		passwordtf.setText("");
 		leveltf.setValue(null);
+		soldetf.setText("");
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Trader updating");
 		alert.setHeaderText("succesful");
@@ -286,6 +312,7 @@ public class Trader1Controller implements Initializable {
 		emailtf.setText("");
 		passwordtf.setText("");
 		leveltf.setValue(null);
+		soldetf.setText("");
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Trader removing");
@@ -319,7 +346,7 @@ public class Trader1Controller implements Initializable {
 	private void refreshTableview(ActionEvent event) throws NamingException {
 		
 		
-		leveltf.setItems(unitex);
+	
 		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 
 		try {
@@ -332,6 +359,7 @@ public class Trader1Controller implements Initializable {
 			emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
 			passwordcol.setCellValueFactory(new PropertyValueFactory<>("password"));
 			levelcol.setCellValueFactory(new PropertyValueFactory<>("level"));
+			soldecol.setCellValueFactory(new PropertyValueFactory<>("solde"));
 			ObservableList<Trader> items = FXCollections.observableArrayList(traders);
 			tableviewtrader.setItems(items);
 			firstnametf.setText("");
@@ -339,6 +367,7 @@ public class Trader1Controller implements Initializable {
 			emailtf.setText("");
 			passwordtf.setText("");
 			leveltf.setValue(null);
+			soldetf.setText("");
 
 		} catch (NamingException e) {
 
@@ -359,6 +388,7 @@ public class Trader1Controller implements Initializable {
            stage.setScene(scene);
            stage.show();
 	    }
+	 
 	/*  @FXML
 	    private void generatepdf(ActionEvent event) throws Exception {
 		  String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";

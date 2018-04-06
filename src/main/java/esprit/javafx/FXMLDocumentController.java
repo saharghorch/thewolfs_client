@@ -17,6 +17,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
@@ -25,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
@@ -44,8 +47,10 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton btnProfile;
     @FXML
     private JFXButton btnAlerts;
+    @FXML 
+    private Button deconnectBtn;
     
-    AnchorPane contacts,alerts,pricing,profiles,widgets,controls,trader;
+    AnchorPane statistiques,alerts,marks,profiles,widgets,controls,trader;
     @FXML
     private JFXButton btnControls;
 
@@ -53,13 +58,14 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     
         try {
-             contacts = FXMLLoader.load(getClass().getResource("Contacts.fxml"));
+             statistiques = FXMLLoader.load(getClass().getResource("TraderStat.fxml"));
              alerts = FXMLLoader.load(getClass().getResource("Alerts.fxml"));
-             pricing = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+             marks = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
              profiles = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
              widgets = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
              controls = FXMLLoader.load(getClass().getResource("Controls.fxml"));
              trader = FXMLLoader.load(getClass().getResource("Trader.fxml"));
+             
             setNode(trader);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,12 +89,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void switchPricing(ActionEvent event) {
-        setNode(pricing);
+        setNode(marks);
     }
 
     @FXML
     private void switchContacts(ActionEvent event) {
-        setNode(contacts);
+        setNode(statistiques);
     }
 
     @FXML
@@ -115,5 +121,13 @@ public class FXMLDocumentController implements Initializable {
     private void switchHome(ActionEvent event) {
         setNode(trader);
     }
+@FXML
+ 	private void Ondeconnect(ActionEvent event) throws IOException {
+	Parent root = FXMLLoader.load(getClass().getResource("LoginTrader.fxml"));
+	Scene newScene= new Scene(root);
+	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	window.setScene(newScene);
+	window.show();
+}
 
 }
