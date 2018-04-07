@@ -23,7 +23,7 @@ public class Wolfs extends Application {
 	}
     @Override
     public void start(Stage stage)throws Exception {
-       Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("TraderOption.fxml"));
          Scene scene = new Scene(root);
         stage.setResizable(false);
         stage.setScene(scene);

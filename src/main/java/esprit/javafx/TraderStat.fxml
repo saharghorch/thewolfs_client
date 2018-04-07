@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="562.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.TraderStatController">
+<AnchorPane prefHeight="716.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.TraderStatController">
    <children>
-      <PieChart fx:id="chart1" layoutX="32.0" layoutY="51.0" prefHeight="386.0" prefWidth="696.0" />
-      <Label fx:id="labelstat" layoutX="240.0" layoutY="458.0" text="label" textFill="#eb0202">
+      <PieChart fx:id="chart1" layoutX="24.0" layoutY="60.0" prefHeight="559.0" prefWidth="515.0" />
+      <Label fx:id="labelstat" layoutX="99.0" layoutY="619.0" prefHeight="35.0" prefWidth="857.0" textFill="#eb0202">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <LineChart fx:id="lineChart" layoutX="553.0" layoutY="211.0" title="Traders Chart">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
    </children>
 </AnchorPane>

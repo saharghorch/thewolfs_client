@@ -47,8 +47,8 @@ public class TestTraderService {
 		
 		
 		//existe ou nn 
-		Trader trader2 = new Trader("Meriem", "dbibi", "meriem.dbibi@esprit.tn", "abc",Level.secondLevel);
-		System.out.println(proxy.Traderexiste(trader2));
+		//Trader trader2 = new Trader("Meriem", "dbibi", "meriem.dbibi@esprit.tn", "abc",Level.secondLevel);
+		//System.out.println(proxy.Traderexiste(trader2));
 		//System.out.println(proxy.calculerLevel1());
 	}
 	

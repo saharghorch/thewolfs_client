@@ -20,7 +20,7 @@ public class TraderService {
 		String jndiname="thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 		Context context = new InitialContext();
 		TraderServiceRemote proxy=(TraderServiceRemote) context.lookup(jndiname);
-		Trader trader2 = new Trader("Meriem", "dbibi", "meriem.dbibi@esprit.tn", "abc",Level.secondLevel);
+		//Trader trader2 = new Trader("Meriem", "dbibi", "meriem.dbibi@esprit.tn", "abc",Level.secondLevel);
 	//System.out.println(proxy.Traderexiste(trader2));
 		//System.out.println(proxy.Tr);
 		//System.out.println(proxy.addTrader(trader2));

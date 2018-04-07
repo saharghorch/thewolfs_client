@@ -41,8 +41,8 @@ public class LoginTraderController {
 		    	 
 
 				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Trader adding");
-				alert.setHeaderText("you have an empty field");
+				alert.setTitle("Connexion");
+				alert.setHeaderText("wrong password or email");
 				alert.showAndWait();
 		    }else if (s.equals("level")){
 		    	

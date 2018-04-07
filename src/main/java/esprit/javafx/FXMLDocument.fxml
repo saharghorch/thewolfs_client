@@ -5,13 +5,14 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="esprit.javafx.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLDocumentController">
    <children>
       <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -21,6 +22,9 @@
                </padding>
             </Label>
          </left>
+         <right>
+            <Button fx:id="deconnectBtn" mnemonicParsing="false" onAction="#Ondeconnect" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #222D32;" text="Deconnexion" textFill="#fff8f8" BorderPane.alignment="CENTER" />
+         </right>
       </JFXToolbar>
       <VBox layoutY="40.0" prefHeight="720.0" prefWidth="140.0" style="-fx-background-color: #2A3F54;">
          <children>
@@ -33,7 +37,7 @@
                   <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="43.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnPricing" layoutX="10.0" layoutY="67.0" onAction="#switchPricing" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Pricing" textFill="#a1aec4">
+            <JFXButton fx:id="btnPricing" layoutX="10.0" layoutY="67.0" onAction="#switchPricing" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Marks" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
@@ -41,7 +45,7 @@
                   <MaterialDesignIconView fill="#a1aec4" glyphName="SHOPPING" size="17.0" wrappingWidth="42.99997329711914" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" onAction="#switchContacts" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Contacts" textFill="#a1aec4">
+            <JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" onAction="#switchContacts" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Statistiques" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
@@ -49,7 +53,7 @@
                   <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="43.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnWidgets" layoutX="10.0" layoutY="151.0" onAction="#switchWidget" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Widgets" textFill="#a1aec4">
+            <JFXButton fx:id="btnWidgets" layoutX="10.0" layoutY="151.0" onAction="#switchWidget" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Reclamation" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
