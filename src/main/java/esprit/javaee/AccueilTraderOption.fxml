@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Mes" prefHeight="551.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.AccueilTraderOptionController">
+   <children>
+      <ImageView fitHeight="607.0" fitWidth="1081.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../finance.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="TableOptionsAcc" layoutX="471.0" layoutY="87.0" prefHeight="442.0" prefWidth="419.0">
+         <columns>
+            <TableColumn fx:id="date" prefWidth="75.0" text="date" />
+            <TableColumn fx:id="PremiumPrice" prefWidth="104.0" text="Premium Price" />
+            <TableColumn fx:id="StrikePrice" prefWidth="88.0" text="Strike Price" />
+            <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="asset" prefWidth="75.0" text="Asset" />
+         </columns>
+      </TableView>
+      <Button fx:id="BuyOption" layoutX="131.0" layoutY="217.0" mnemonicParsing="false" onAction="#OnActionBuyOption" prefHeight="47.0" prefWidth="257.0" text="Buy an option " textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="MyOptions" layoutX="135.0" layoutY="394.0" mnemonicParsing="false" onAction="#OnActionMyOptions" prefHeight="47.0" prefWidth="250.0" text="My options " textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="854.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="131.0" layoutY="293.0" prefHeight="58.0" prefWidth="257.0" />
+   </children>
+</AnchorPane>

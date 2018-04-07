@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,26 +13,28 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
-
+import javafx.scene.input.MouseEvent;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ComboBox;
+import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import tn.esprit.thewolfs_server.entity.Asset;
 import tn.esprit.thewolfs_server.entity.Options;
 import tn.esprit.thewolfs_server.entity.Status;
+import tn.esprit.thewolfs_server.entity.Trader;
+import tn.esprit.thewolfs_server.entity.Type;
+import tn.esprit.thewolfs_server.entity.User;
 import tn.esprit.thewolfs_server.services.OptionsRemote;
+import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
@@ -104,7 +105,7 @@ public class AdminController implements Initializable {
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-		//	proxy.UpdateOptionStatus(arr.get(i).getId(),comboBoxStatus.getValue());
+			proxy.UpdateOptionStatus(arr.get(i).getId(),comboBoxStatus.getValue());
 			afficher(proxy);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -125,25 +126,25 @@ public class AdminController implements Initializable {
 			
 			context = new InitialContext();
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		try {
-			//System.out.println("ccccccccccccccccc");
+			
 		
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-			//System.out.println("eeeeeeeeeeeeeeeeeeee");
+			
 			Options option = new Options();
-			//System.out.println(textStrikePrice.getText());
+			
 option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
 
-//System.out.println(option);
+
 proxy.addOption(option);
 System.out.println("ajout avec succes");
 }
 		catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     }
@@ -155,7 +156,7 @@ System.out.println("ajout avec succes");
     public void afficher(OptionsRemote proxy){
     	
     	tableViewOption.getItems().clear();
-	//	arr= proxy.findAll();
+		arr= proxy.findAll();
 		System.out.println(arr);
     	for (int i=0;i<arr.size();i++){
     	list.add(arr.get(i));	
@@ -183,15 +184,16 @@ System.out.println("ajout avec succes");
 		try {
 			context = new InitialContext();
 		} catch (NamingException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
+			System.out.println(arr.get(i).getId());
 			proxy.deleteOption(arr.get(i).getId());
 			afficher(proxy);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -215,7 +217,7 @@ System.out.println("ajout avec succes");
 		try {
 			context = new InitialContext();
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		try {
@@ -223,7 +225,7 @@ System.out.println("ajout avec succes");
 			afficher(proxy);
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
