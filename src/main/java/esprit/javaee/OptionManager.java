@@ -22,7 +22,7 @@ public class OptionManager {
 
 		OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 		
-		Options option = new Options();
+	/*	Options option = new Options();
 		option.setStrike_price(0.2f);
 		option.setPremium_price(0.4f);
 		option.setExpiration_date(null);
@@ -34,7 +34,7 @@ public class OptionManager {
 		option.setUser(null);
 		
 
-   //int OptionId=proxy.addOption(option);
+   int OptionId=proxy.addOption(option);
     
     Options op = new Options();
     op.setStrike_price(22.0f);
@@ -47,15 +47,24 @@ public class OptionManager {
 	op.setCounterparty(null);
 	op.setUser(null);
 
-    //int OptionIdd=proxy.addOption(op);
-	int OptionIddd= 1;
-	
+    int OptionIdd=proxy.addOption(op);
+	//int OptionIddd= 1;
+*/	
 	//proxy.deleteOption(OptionIdd);
 	
 //Options opp = proxy.getOptionById(1);
+		
+//Affichage de toutes les options d'un portfolio		
+/*Integer idPortfolio=1;
 List<Options> arr = new ArrayList();
-//arr= proxy.findAll();
+arr= proxy.findAll();
 System.out.println(arr);
+for(Options option:arr){
+	if(option.getPortfolio().getId()==idPortfolio){
+		System.out.println(option);
+	}
+		
+}*/
 
 //proxy.UpdateOptionStatus(OptionIddd);	
 }

@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.PortfolioInterfaceController">
    <children>
-      <AnchorPane prefHeight="608.0" prefWidth="738.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="32.0" layoutY="14.0" prefHeight="608.0" prefWidth="738.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="-32.0" AnchorPane.topAnchor="14.0">
          <children>
-            <Button fx:id="addPortfolioBtn" layoutX="69.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPortfolio" style="-fx-background-color: #09a3ae;" text="Add New Portfolio" />
-            <Button fx:id="deletePortfolioBtn" layoutX="67.0" layoutY="480.0" mnemonicParsing="false" onAction="#removePortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #09a3ae;" text="Remove Portfolio" />
-            <Button fx:id="updatePortfolioBtn" layoutX="68.0" layoutY="427.0" mnemonicParsing="false" onAction="#updatePortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #09a3ae;" text="Update Portfolio" />
-            <Label layoutX="19.0" layoutY="225.0" text="CreationDate" />
-            <Label layoutX="41.0" layoutY="270.0" text="Cash" />
             <Label layoutX="69.0" layoutY="161.0" />
-            <TableView fx:id="tableview" layoutX="279.0" layoutY="132.0" prefHeight="470.0" prefWidth="445.0">
+            <TableView fx:id="tableview" layoutX="406.0" layoutY="191.0" prefHeight="282.0" prefWidth="461.0">
                <columns>
-                  <TableColumn fx:id="idPortfolioCol" prefWidth="107.0" text="IdPortfolio" />
-                  <TableColumn fx:id="creationDatePortfolioCol" prefWidth="114.0" text="CreationDate" />
-                  <TableColumn fx:id="cashPortfolioCol" minWidth="0.0" prefWidth="116.0" text="Cash" />
-                  <TableColumn prefWidth="123.0" />
+                  <TableColumn fx:id="idPortfolioCol" prefWidth="167.0" text="IdPortfolio" />
+                  <TableColumn fx:id="creationDatePortfolioCol" prefWidth="120.0" text="CreationDate" />
+                  <TableColumn fx:id="cashPortfolioCol" minWidth="0.0" prefWidth="173.0" text="Cash" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" />
                </columns>
             </TableView>
-            <TextField fx:id="cashPortfolioTF" layoutX="99.0" layoutY="266.0" />
-            <TextField fx:id="findPortfolioTF" layoutX="331.0" layoutY="97.0" prefHeight="25.0" prefWidth="149.0" promptText="Search For Portfolio" />
-            <DatePicker fx:id="creationDatePortfolioTF" layoutX="94.0" layoutY="221.0" prefHeight="25.0" prefWidth="158.0" />
-            <Button fx:id="findPortfolioBtn" layoutX="502.0" layoutY="97.0" mnemonicParsing="false" onAction="#findPortfolioByCash" style="-fx-background-color: #09a3ae;" text="Search" />
-            <AnchorPane layoutX="-4.0" prefHeight="82.0" prefWidth="742.0" style="-fx-background-color: #09a3ae;">
-               <children>
-                  <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Admin" />
-                  <Label layoutX="22.0" layoutY="33.0" text="Management Of Portfolios" textFill="#224d5b">
-                     <font>
-                        <Font name="Calibri Bold" size="36.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
+            <DatePicker fx:id="creationDatePortfolioTF" layoutX="68.0" layoutY="97.0" prefHeight="25.0" prefWidth="158.0" />
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Portfolio Management" />
+            <JFXTextField fx:id="cashPortfolioTF" labelFloat="true" layoutX="33.0" layoutY="273.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Cash" />
+            <JFXDatePicker fx:id="creationDatePortfolioTF1" layoutX="31.0" layoutY="215.0" prefHeight="25.0" prefWidth="199.0" promptText="Creation Date" />
+            <JFXTextField fx:id="findPortfolioTF" labelFloat="true" layoutX="486.0" layoutY="82.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Search For Portfolio" />
+            <Button fx:id="findPortfolioBtn" layoutX="738.0" layoutY="86.0" mnemonicParsing="false" onAction="#findPortfolioByCash" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #2A3F54;" text="Search" textFill="#f8f8f8" />
+            <Button fx:id="addPortfolioBtn" layoutX="67.0" layoutY="372.0" mnemonicParsing="false" onAction="#addPortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #2A3F54;" text="Add New Portfolio" textFill="#f8f8f8" />
+            <Button fx:id="updatePortfolioBtn" layoutX="67.0" layoutY="411.0" mnemonicParsing="false" onAction="#updatePortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #2A3F54;" text="Update Portfolio" textFill="#f8f8f8" />
+            <Button fx:id="deletePortfolioBtn" layoutX="67.0" layoutY="448.0" mnemonicParsing="false" onAction="#removePortfolio" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #2A3F54;" text="Remove Portfolio" textFill="#f8f8f8" />
          </children>
       </AnchorPane>
+      <Separator layoutY="63.0" prefHeight="8.0" prefWidth="1236.0" />
    </children>
 </AnchorPane>

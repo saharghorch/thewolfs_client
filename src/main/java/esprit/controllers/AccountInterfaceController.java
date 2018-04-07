@@ -25,6 +25,7 @@ import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Activity;
 import tn.esprit.thewolfs_server.entity.Currency;
 import tn.esprit.thewolfs_server.services.AccountServiceRemote;
+import tn.esprit.thewolfs_server.services.TraderServiceRemote;
 
 public class AccountInterfaceController implements Initializable{
 
@@ -126,6 +127,9 @@ public class AccountInterfaceController implements Initializable{
     	String jndiName="thewolfs_server-ear/thewolfs_server-ejb/AccountService!tn.esprit.thewolfs_server.services.AccountServiceRemote";
     	Context context=new InitialContext();
     	AccountServiceRemote proxy=(AccountServiceRemote) context.lookup(jndiName);
+    	String jndiNameTrader="thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+    	Context contextTrader =new InitialContext();
+    	TraderServiceRemote proxyTrader=(TraderServiceRemote) context.lookup(jndiNameTrader);
     
     	if(tableview.getSelectionModel().getSelectedItem() != null){
     		Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -142,8 +146,11 @@ public class AccountInterfaceController implements Initializable{
     		}
     		else{
     			Account account=new Account(Float.parseFloat(amountTF.getText()), currencyCB.getValue(), isActiveCB.getValue());
-    	        proxy.addAccount(account);
-    	        Alert alert = new Alert(AlertType.INFORMATION);
+    	       // DéclarationStatique
+    			Integer idTrader=1;
+    			account.setTrader(proxyTrader.findTraderById(idTrader));
+    			int idAccount = proxy.addAccount(account);
+    			Alert alert = new Alert(AlertType.INFORMATION);
     			alert.setTitle("Account Adding");
     			alert.setHeaderText("Succesful :) ");
     			alert.showAndWait();

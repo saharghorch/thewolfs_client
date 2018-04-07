@@ -22,7 +22,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import tn.esprit.thewolfs_server.entity.Portfolio;
+import tn.esprit.thewolfs_server.entity.Trader;
 import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
+import tn.esprit.thewolfs_server.services.TraderServiceRemote;
 
 public class PortfolioInterfaceController implements Initializable {
 	    @FXML
@@ -85,6 +87,10 @@ public class PortfolioInterfaceController implements Initializable {
 			Context context=new InitialContext();
 			PortfolioServiceRemote proxy=(PortfolioServiceRemote) context.lookup(jndiName);
 			LocalDate today = LocalDate.now();
+			
+			String jndiNameTrader="thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+	    	Context contextTrader =new InitialContext();
+	    	TraderServiceRemote proxyTrader=(TraderServiceRemote) context.lookup(jndiNameTrader);
     
 			if(tableview.getSelectionModel().getSelectedItem() != null){
 	    		Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -110,7 +116,11 @@ public class PortfolioInterfaceController implements Initializable {
 						    LocalDate localDate =creationDatePortfolioTF.getValue();
 					        java.sql.Date creationDate = java.sql.Date.valueOf(localDate);
 							Portfolio portfolio=new Portfolio(creationDate,Float.parseFloat(cashPortfolioTF.getText()));
-							proxy.addPortfolio(portfolio);
+							//Ajout statique de trader
+							Integer idTrader=1;
+						    Integer idPortfolio =proxy.addPortfolio(portfolio);
+						    proxy.assignPortfolioToTrader(idTrader, idPortfolio);
+							
 							Alert alert = new Alert(AlertType.INFORMATION);
 				    		alert.setTitle("Portfolio Adding");
 				    		alert.setHeaderText("Succesful :) ");

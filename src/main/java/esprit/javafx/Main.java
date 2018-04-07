@@ -18,7 +18,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		   try {
-	            Parent root = FXMLLoader.load(getClass().getResource("AccountInterface.fxml"));
+	            Parent root = FXMLLoader.load(getClass().getResource("SpaceTraderInterface.fxml"));
 	            Scene scene = new Scene(root);
 	            //stage.initStyle(StageStyle.TRANSPARENT);
 	            stage.setScene(scene);
