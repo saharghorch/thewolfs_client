@@ -56,14 +56,44 @@ import javafx.stage.Stage;
  */
 public class AccueilTraderOptionController implements Initializable {
 	List<Options> arr = new ArrayList();
-
+	List<Options> arrr = new ArrayList();
 	public ObservableList<Options> list = FXCollections.observableArrayList();
+	public ObservableList<Options> list1 = FXCollections.observableArrayList();
 	public static int id_trader_co = 1;
 	@FXML
     private TableView<Options> TableOptionsAcc;
+	@FXML
+    private TableColumn<Options, Float> StockPrice;
 
     @FXML
+    private TableColumn<Options,Float> volatility;
+
+    @FXML
+    private TableColumn<Options, String> time_to_expiry;
+    @FXML
     private TableColumn<Options, Date> date;
+    @FXML
+    private TableView<Options> TableOptionsAcc1;
+	@FXML
+    private TableColumn<Options, Float> StockPrice1;
+
+    @FXML
+    private TableColumn<Options,Float> volatility1;
+
+    @FXML
+    private TableColumn<Options, String> time_to_expiry1;
+    @FXML
+    private TableColumn<Options, Date> date1;
+    @FXML
+    private TableColumn<Options, Float> PremiumPrice1;
+
+    @FXML
+    private TableColumn<Options, Float> StrikePrice1;
+    @FXML
+    private TableColumn<Options, Integer> asset1;
+    @FXML
+    private TableColumn<Options, String> type1;
+    
     @FXML
     private Label label;
     @FXML
@@ -77,6 +107,9 @@ public class AccueilTraderOptionController implements Initializable {
     private TableColumn<Options, String> type;
     @FXML
     private Button BuyOption;
+    @FXML
+    private Label amount;
+
 public static int i;
 @FXML
 private Button MyOptions;
@@ -102,9 +135,11 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-			if(arr.get(i).getCounterparty()==null)
+			if(arr.get(i).getCounterparty()==null && arr.get(i).getPremium_price() <= proxy.FindAmountTrader(id_trader_co))
 			{
 				proxy.UpdateOptionCounterparty(arr.get(i).getId(),proxy.findTraderById(id_trader_co));
+				float am = (proxy.FindAmountTrader(id_trader_co)) - (arr.get(i).getPremium_price());
+				proxy.UpdateAmount(id_trader_co, am);
 				afficher(proxy);
 				label.setText("");
 				String title = "Congratulations sir";
@@ -118,6 +153,11 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 				tray.showAndWait();
 				
 			}
+			else if(arr.get(i).getPremium_price() > proxy.FindAmountTrader(id_trader_co))
+			{
+				label.setText("insufficient amount");	
+			}
+		
 			else{
 				label.setText("This option is already sold");
 			}
@@ -127,25 +167,102 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 		}
 		
     }
-    
+  /*  public void afficherSold(OptionsRemote proxy){
+    	
+      	 TableOptionsAcc1.getItems().clear();
+      	//amount.setText(Float.toString(proxy.FindAmountTrader(id_trader_co)));
+      	//	System.out.println("test");
+      	 arr= proxy.findOptionsValid(Status.Valid);
+      		System.out.println(arr);
+      		
+      		for (int i=0;i<arr.size();i++){
+      	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+      	    	if (Integer.parseInt(aa)>0){
+      	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+      	    	}
+      	    	else {
+      	    		String e = "Expiré";
+      	    	
+      	    		arr.get(i).setTime_to_expiry(e);
+      	    		
+      	    		
+      	    	}
+      	    	list.add(arr.get(i));	
+      	    	}
+          	
+          	date1.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
+          	PremiumPrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
+          	StrikePrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));
+          	type1.setCellValueFactory(new PropertyValueFactory<Options, String>("type"));
+          	asset1.setCellValueFactory(new PropertyValueFactory<Options, Integer>("asset"));
+           StockPrice1.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+       	volatility1.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+       	time_to_expiry1.setCellValueFactory(new PropertyValueFactory<Options,String>("time_to_expiry"));
+          	TableOptionsAcc1.setItems(list);
+          } */
     public void afficher(OptionsRemote proxy){
     	
    	 TableOptionsAcc.getItems().clear();
+   	amount.setText(Float.toString(proxy.FindAmountTrader(id_trader_co)));
    		System.out.println("test");
-   	 arr= proxy.findOptionsValid(Status.Valid);
-   		System.out.println(arr);
+   	 arrr= proxy.findOptionsValidSold(Status.Valid);
+   		System.out.println(arrr);
    		
-       	for (int i=0;i<arr.size();i++){
-       	list.add(arr.get(i));	
-       	}
+   		for (int i=0;i<arrr.size();i++){
+   	    	String aa = proxy.TimeToExpiry(arrr.get(i).getExpiration_date());
+   	    	if (Integer.parseInt(aa)>0){
+   	        arrr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arrr.get(i).getExpiration_date()));
+   	    	}
+   	    	else {
+   	    		String e = "Expiré";
+   	    	
+   	    		arrr.get(i).setTime_to_expiry(e);
+   	    		
+   	    		
+   	    	}
+   	    	list.add(arrr.get(i));	
+   	    	}
        	
        	date.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
        	PremiumPrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
        	StrikePrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));
        	type.setCellValueFactory(new PropertyValueFactory<Options, String>("type"));
        	asset.setCellValueFactory(new PropertyValueFactory<Options, Integer>("asset"));
-       	
+        StockPrice.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+    	volatility.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+    	time_to_expiry.setCellValueFactory(new PropertyValueFactory<Options,String>("time_to_expiry"));
        	TableOptionsAcc.setItems(list);
+       	
+       	TableOptionsAcc1.getItems().clear();
+      	//amount.setText(Float.toString(proxy.FindAmountTrader(id_trader_co)));
+      	//	System.out.println("test");
+      	 arr= proxy.findOptionsValid(Status.Valid);
+      		System.out.println(arr);
+      		
+      		for (int i=0;i<arr.size();i++){
+      	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+      	    	if (Integer.parseInt(aa)>0){
+      	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+      	    	}
+      	    	else {
+      	    		String e = "Expiré";
+      	    	
+      	    		arr.get(i).setTime_to_expiry(e);
+      	    		
+      	    		
+      	    	}
+      	    	list1.add(arr.get(i));	
+      	    	}
+          	
+          	date1.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
+          	PremiumPrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
+          	StrikePrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));
+          	type1.setCellValueFactory(new PropertyValueFactory<Options, String>("type"));
+          	asset1.setCellValueFactory(new PropertyValueFactory<Options, Integer>("asset"));
+           StockPrice1.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+       	volatility1.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+       	time_to_expiry1.setCellValueFactory(new PropertyValueFactory<Options,String>("time_to_expiry"));
+          	TableOptionsAcc1.setItems(list1);
        }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -159,7 +276,9 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
+		
 			afficher(proxy);
+			//afficherSold(proxy);
 			
 			
 		} catch (NamingException e) {

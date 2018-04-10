@@ -60,7 +60,14 @@ public class TraderOptionController implements Initializable {
 
     @FXML
     private TableColumn<Options, Float> StrikePrice;
+    @FXML
+    private TableColumn<Options, Float> StockPrice;
 
+    @FXML
+    private TableColumn<Options,Float> volatility;
+
+    @FXML
+    private TableColumn<Options, String> time_to_expiry;
     @FXML
     private TableColumn<Options, String> type;
     @FXML
@@ -202,9 +209,20 @@ tray.showAndWait();
 	
 		arr= proxy.findOptionsByTrader(id_trader_co);
 		
-    	for (int i=0;i<arr.size();i++){
-    	list.add(arr.get(i));	
-    	}
+		for (int i=0;i<arr.size();i++){
+	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+	    	if (Integer.parseInt(aa)>0){
+	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+	    	}
+	    	else {
+	    		String e = "Expiré";
+	    	
+	    		arr.get(i).setTime_to_expiry(e);
+	    		
+	    		
+	    	}
+	    	list.add(arr.get(i));	
+	    	}
     	assetType=proxy.findAssetType();
     	
     	for(int j=0 ; j<assetType.size() ; j++)
@@ -219,6 +237,9 @@ tray.showAndWait();
     	type.setCellValueFactory(new PropertyValueFactory<Options, String>("type"));
     	asset.setCellValueFactory(new PropertyValueFactory<Options, Integer>("asset"));
     	status.setCellValueFactory(new PropertyValueFactory<Options, String>("status"));
+    	StockPrice.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+     	volatility.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+     	time_to_expiry.setCellValueFactory(new PropertyValueFactory<Options,String>("time_to_expiry"));
     	TableOptionsAcc.setItems(list);
     }
  public void afficherCounterparty(OptionsRemote proxy){
@@ -227,9 +248,20 @@ tray.showAndWait();
 	
 		arr= proxy.findOptionsByCounterparty(id_trader_co);
 		System.out.println(arr);
-    	for (int i=0;i<arr.size();i++){
-    	list.add(arr.get(i));	
-    	}
+		for (int i=0;i<arr.size();i++){
+	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+	    	if (Integer.parseInt(aa)>0){
+	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+	    	}
+	    	else {
+	    		String e = "Expiré";
+	    	
+	    		arr.get(i).setTime_to_expiry(e);
+	    		
+	    		
+	    	}
+	    	list.add(arr.get(i));	
+	    	}
     	assetType=proxy.findAssetType();
     	
     	for(int j=0 ; j<assetType.size() ; j++)

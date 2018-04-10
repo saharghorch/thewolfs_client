@@ -1,5 +1,8 @@
 package esprit.javaee;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,7 @@ import tn.esprit.thewolfs_server.services.OptionsRemote;
 //import tn.esprit.thewolfs_server.services.OptionsRemote;
 import tn.esprit.thewolfs_server.entity.*;
 public class OptionManager {
-	public static void main(String[] args) throws NamingException {
+	public static void main(String[] args) throws NamingException, ParseException {
 	String jndiname="thewolfs_server-ear/thewolfs_server-ejb/OptionsManager!tn.esprit.thewolfs_server.services.OptionsRemote";
 		Context context = new InitialContext();
 		OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
@@ -57,8 +60,10 @@ public class OptionManager {
 	Trader k = new Trader();
 	int ii=1;
 	k=proxy.findTraderById(ii);
-	System.out.println(k);
-//List<Options> arrs = new ArrayList();
+	//System.out.println(k);
+List<Options> arrs = new ArrayList();
+arrs = proxy.findOptionsByType(Type.Put);
+System.out.println(arrs);
 //arrs= proxy.findOptionsValid(Status.Valid);
 //System.out.println(arrs);
 
@@ -67,5 +72,14 @@ public class OptionManager {
 //arrAsset=proxy.findAssetType();
 //System.out.println(arrAsset);
 //proxy.UpdateOptionStatus(OptionIddd);	
+	SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+	Date dd=dateFormat.parse("11/04/2018");
+	String a = proxy.TimeToExpiry(dd);
+	//System.out.println(a);
+	
+//Float am = proxy.FindAmountTrader(1);
+//System.out.println(am);
+	//proxy.UpdateAmount(1, 2500);
+	
 }
 }

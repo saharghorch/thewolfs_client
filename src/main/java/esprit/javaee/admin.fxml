@@ -10,19 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.AdminController">
+<AnchorPane id="AnchorPane" prefHeight="658.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.AdminController">
    <children>
       <ImageView fitHeight="644.0" fitWidth="1046.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../finance.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="840.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1070.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../logo.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tableViewOption" layoutX="160.0" layoutY="89.0" onMouseClicked="#OnMouseClickedTable" prefHeight="283.0" prefWidth="673.0">
+      <TableView fx:id="tableViewOption" layoutX="160.0" layoutY="89.0" onMouseClicked="#OnMouseClickedTable" prefHeight="283.0" prefWidth="934.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="36.0" text="id" />
             <TableColumn fx:id="date" prefWidth="102.0" text="date" />
@@ -34,6 +34,9 @@
             <TableColumn fx:id="counterparty" prefWidth="90.0" text="counterparty" />
             <TableColumn fx:id="trader" prefWidth="66.0" text="trader" />
             <TableColumn fx:id="user" minWidth="0.0" prefWidth="0.0" text="user" />
+            <TableColumn fx:id="StockPrice" prefWidth="75.0" text="Stock price" />
+            <TableColumn fx:id="volatility" prefWidth="75.0" text="Volatility" />
+            <TableColumn fx:id="time_to_expiry" prefWidth="111.0" text="Time to expiry" />
         </columns>
       </TableView>
       <Button fx:id="deleteOption" layoutX="325.0" layoutY="523.0" mnemonicParsing="false" onAction="#ActionButtonDelete" prefHeight="42.0" prefWidth="172.0" text="Delete">
