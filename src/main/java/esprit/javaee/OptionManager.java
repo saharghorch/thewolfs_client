@@ -56,8 +56,8 @@ public class OptionManager {
 //System.out.println(arr);
 	Trader k = new Trader();
 	int ii=1;
-	k=proxy.findTraderById(ii);
-	System.out.println(k);
+k=proxy.findTraderById(ii);
+System.out.println(k);
 //List<Options> arrs = new ArrayList();
 //arrs= proxy.findOptionsValid(Status.Valid);
 //System.out.println(arrs);

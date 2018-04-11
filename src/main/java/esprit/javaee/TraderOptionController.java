@@ -164,7 +164,7 @@ option.setType(ComboType.getValue());
 option.setAsset(assetType.get(ComboType.getSelectionModel().getSelectedIndex()));
 option.setExpiration_date(new java.util.Date(date_exp.getValue().getYear()-1900, date_exp.getValue().getMonthValue()-1, date_exp.getValue().getDayOfMonth()));
 option.setStatus(Status.onHold);
-option.setTrader(proxy.findTraderById(id_trader_co));
+ option.setTrader(proxy.findTraderById(id_trader_co));
 System.out.println(option.getAsset());
 proxy.addOption(option);
 System.out.println("ajout avec succes");
@@ -198,8 +198,6 @@ tray.showAndWait();
     	
 	 TableOptionsAcc.getItems().clear();
 	 
-
-	
 		arr= proxy.findOptionsByTrader(id_trader_co);
 		
     	for (int i=0;i<arr.size();i++){
@@ -224,7 +222,7 @@ tray.showAndWait();
  public void afficherCounterparty(OptionsRemote proxy){
  	
 	 TableOptionsAcc.getItems().clear();
-	
+		
 		arr= proxy.findOptionsByCounterparty(id_trader_co);
 		System.out.println(arr);
     	for (int i=0;i<arr.size();i++){

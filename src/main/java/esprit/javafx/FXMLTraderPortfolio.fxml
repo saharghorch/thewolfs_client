@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderPortfolioController">
+   <children>
+      <AnchorPane layoutX="-10.0" layoutY="6.0" prefHeight="622.0" prefWidth="1268.0" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-22.0" AnchorPane.topAnchor="6.0">
+         <children>
+            <Label layoutX="69.0" layoutY="161.0" />
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="My Portfolio" />
+         </children>
+      </AnchorPane>
+      <Separator layoutY="63.0" prefHeight="8.0" prefWidth="1236.0" />
+      <TableView fx:id="tableview1" layoutX="44.0" layoutY="181.0" prefHeight="337.0" prefWidth="813.0">
+         <columns>
+            <TableColumn fx:id="symboleCol" prefWidth="114.0" text="Symbole" />
+            <TableColumn fx:id="underlyingPriceCol" prefWidth="147.99996948242188" text="Underlying Price (EUR) " />
+            <TableColumn fx:id="volatilityCol" prefWidth="112.0" text="Volatility (%)" />
+            <TableColumn fx:id="interestRateCol" minWidth="0.0" prefWidth="204.0" text="Risk-Free Interest Rate (%)" />
+            <TableColumn fx:id="typeCol" minWidth="0.0" prefWidth="126.0" text="Type" />
+            <TableColumn fx:id="statusCol" minWidth="0.0" prefWidth="106.0" text="Status" />
+         </columns>
+      </TableView>
+      <JFXTextField fx:id="creationDateTF" labelFloat="true" layoutX="107.0" layoutY="108.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Creation Date" />
+      <JFXTextField fx:id="cashTF" labelFloat="true" layoutX="434.0" layoutY="109.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Cash" />
+   </children>
+</AnchorPane>

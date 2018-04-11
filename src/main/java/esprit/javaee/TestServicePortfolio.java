@@ -27,9 +27,9 @@ public class TestServicePortfolio {
 		OptionsRemote proxyOptions=(OptionsRemote) contextOptions.lookup(jndiNameOptions);
 		
 		//Ajout d'un Portfolio
-		Date creation_date=dateFormat.parse("14/03/2018");
-		Portfolio portfolio=new Portfolio(creation_date,50000f);
-	    System.out.println(proxy.addPortfolio(portfolio));
+/*		Date creation_date=dateFormat.parse("09/04/2018");
+		Portfolio portfolio=new Portfolio(creation_date,942018f);*/
+	   // System.out.println(proxy.addPortfolio(portfolio));
 	    
 	    //Mise A jour d'un Portfolio
 		/*
@@ -64,7 +64,18 @@ public class TestServicePortfolio {
 	   // System.out.println(proxy.findPortfolioByCash(15500f));
 	    
 	    //Affichage de toutes les options d'un portfolio
-	    List<Options> allOptions=proxyOptions.findAll();
+	    //List<Options> allOptions=proxyOptions.findAll();
+	/*    
+	    Integer idTrader=1;
+	    Integer idPortfolio =proxy.addPortfolio(portfolio);
+	    proxy.assignPortfolioToTrader(idTrader, idPortfolio);
+		String jndinameOption="thewolfs_server-ear/thewolfs_server-ejb/OptionsManager!tn.esprit.thewolfs_server.services.OptionsRemote";
+		Context contextOption = new InitialContext();
+		OptionsRemote proxyOption=(OptionsRemote) context.lookup(jndinameOption);*/
+		
+		//Integer idTrader=4;
+		System.out.println(proxy.getPortfolioById(8));
+		
 	    
 	    
 	}

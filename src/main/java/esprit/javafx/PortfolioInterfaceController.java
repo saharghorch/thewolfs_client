@@ -1,4 +1,4 @@
-package esprit.controllers;
+package esprit.javafx;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -56,6 +56,7 @@ public class PortfolioInterfaceController implements Initializable {
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb){
 	    	Context context;
+	    	System.out.println(Session.getUser().getId()+": c est l id du trader connecté");
 			try {
 				String jndiName="thewolfs_server-ear/thewolfs_server-ejb/PortfolioService!tn.esprit.thewolfs_server.services.PortfolioServiceRemote";
 				context = new InitialContext();
@@ -238,4 +239,5 @@ public class PortfolioInterfaceController implements Initializable {
 	    }
 	    
 	}
+
 

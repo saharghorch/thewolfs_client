@@ -49,11 +49,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author sahar ghorch
- */
 public class AccueilTraderOptionController implements Initializable {
 	List<Options> arr = new ArrayList();
 
@@ -104,6 +99,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 			if(arr.get(i).getCounterparty()==null)
 			{
+			
 				proxy.UpdateOptionCounterparty(arr.get(i).getId(),proxy.findTraderById(id_trader_co));
 				afficher(proxy);
 				label.setText("");
@@ -132,13 +128,12 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
     	
    	 TableOptionsAcc.getItems().clear();
    		System.out.println("test");
-   	 arr= proxy.findOptionsValid(Status.Valid);
+   	    arr= proxy.findOptionsValid(Status.Valid);
    		System.out.println(arr);
    		
        	for (int i=0;i<arr.size();i++){
        	list.add(arr.get(i));	
        	}
-       	
        	date.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
        	PremiumPrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
        	StrikePrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="608.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLAdminForumController">
+   <children>
+      <AnchorPane prefHeight="608.0" prefWidth="1257.0">
+         <children>
+            <TableView fx:id="tableview" layoutX="207.0" layoutY="86.0" prefHeight="280.0" prefWidth="765.0">
+               <columns>
+                  <TableColumn fx:id="descriptionStatusCol" prefWidth="407.0" text="All Status" />
+                  <TableColumn fx:id="dateStatusCol" prefWidth="120.0" text="Publication Date" />
+                  <TableColumn fx:id="likesStatusCol" minWidth="0.0" prefWidth="76.0" text="Likes" />
+                  <TableColumn fx:id="dislikesStatusCol" prefWidth="75.0" text="Dislikes" />
+                  <TableColumn fx:id="viewsStatusCol" prefWidth="86.0" text="Views" />
+               </columns>
+            </TableView>
+            <Label layoutX="417.0" layoutY="134.0" text="Label" textFill="#bfbfbf12" />
+            <Button fx:id="allCommentsBtn" layoutX="481.0" layoutY="457.0" mnemonicParsing="false" onAction="#seeAllComments" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #2A3F54;" text="See All Comments" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="20.0" layoutY="19.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Forum Discussion" />
+         </children>
+      </AnchorPane>
+      <Separator layoutX="23.0" layoutY="59.0" prefHeight="4.0" prefWidth="1213.0" />
+   </children>
+</AnchorPane>
