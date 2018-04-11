@@ -49,11 +49,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author sahar ghorch
- */
 public class AccueilTraderOptionController implements Initializable {
 	List<Options> arr = new ArrayList();
 	List<Options> arrr = new ArrayList();
@@ -137,6 +132,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 			if(arr.get(i).getCounterparty()==null && arr.get(i).getPremium_price() <= proxy.FindAmountTrader(id_trader_co))
 			{
+			
 				proxy.UpdateOptionCounterparty(arr.get(i).getId(),proxy.findTraderById(id_trader_co));
 				float am = (proxy.FindAmountTrader(id_trader_co)) - (arr.get(i).getPremium_price());
 				proxy.UpdateAmount(id_trader_co, am);
@@ -205,9 +201,17 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
    	 TableOptionsAcc.getItems().clear();
    	amount.setText(Float.toString(proxy.FindAmountTrader(id_trader_co)));
    		System.out.println("test");
+
+   	    arr= proxy.findOptionsValid(Status.Valid);
+   		System.out.println(arr);
    	 arrr= proxy.findOptionsValidSold(Status.Valid);
    		System.out.println(arrr);
-   		
+
+
+       	for (int i=0;i<arr.size();i++){
+       	list.add(arr.get(i));	
+       	}
+
    		for (int i=0;i<arrr.size();i++){
    	    	String aa = proxy.TimeToExpiry(arrr.get(i).getExpiration_date());
    	    	if (Integer.parseInt(aa)>0){
@@ -222,7 +226,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
    	    	}
    	    	list.add(arrr.get(i));	
    	    	}
-       	
+
        	date.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
        	PremiumPrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
        	StrikePrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));

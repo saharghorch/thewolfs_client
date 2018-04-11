@@ -3,6 +3,7 @@ package esprit.javaee;
 
 
 
+import java.awt.Window.Type;
 import java.util.List;
 
 import javax.naming.Context;
@@ -10,7 +11,11 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import tn.esprit.thewolfs_server.entity.Account;
+import tn.esprit.thewolfs_server.entity.Status;
+import tn.esprit.thewolfs_server.entity.StockOption;
+
 import tn.esprit.thewolfs_server.services.AccountServiceRemote;
+import tn.esprit.thewolfs_server.services.StockOptionServiceRemote;
 
 
 public class TestServiceAccount {
@@ -42,11 +47,19 @@ for(Account a : accounts)
 
 //System.out.println(proxy.findAccountByAmount(6000f));
 
+List<Account> accountsTrader= proxy.findAllAccountByTrader(1);
+for(Account a : accountsTrader)
+{
+	System.out.println(a);
+}
 
 
+String jndiNameStockOption="thewolfs_server-ear/thewolfs_server-ejb/StockOptionService!tn.esprit.thewolfs_server.services.StockOptionServiceRemote";
+Context contextStockOption=new InitialContext();
+StockOptionServiceRemote proxyStockOption=(StockOptionServiceRemote) context.lookup(jndiNameStockOption);
 
-
-
+StockOption stockOption=new StockOption(98250d,150d, 88d,"mst",tn.esprit.thewolfs_server.entity.Type.Put,Status.Valid);
+System.out.println(proxyStockOption.addStockOption(stockOption));
 
 
 

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.PortfolioInterfaceController">
+<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.PortfolioInterfaceController">
    <children>
       <AnchorPane layoutX="32.0" layoutY="14.0" prefHeight="608.0" prefWidth="738.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="-32.0" AnchorPane.topAnchor="14.0">
          <children>

@@ -61,14 +61,14 @@ public class SpaceTraderController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     
         try {
-             options = FXMLLoader.load(getClass().getResource("Contacts.fxml"));
+             options = FXMLLoader.load(getClass().getResource("FXMLTraderOption.fxml"));
              pricing = FXMLLoader.load(getClass().getResource("PricingInterface.fxml"));
              profile = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-             portfolio = FXMLLoader.load(getClass().getResource("PortfolioInterface.fxml"));
-             accounts = FXMLLoader.load(getClass().getResource("AccountInterface.fxml"));
+             portfolio = FXMLLoader.load(getClass().getResource("FXMLTraderPortfolio.fxml"));
+             accounts = FXMLLoader.load(getClass().getResource("FXMLTraderAccount.fxml"));
              alerts = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-             discussion = FXMLLoader.load(getClass().getResource("ForumInterface.fxml"));
-             setNode(options);
+             discussion = FXMLLoader.load(getClass().getResource("FXMLTraderForum.fxml"));
+             setNode(profile);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }

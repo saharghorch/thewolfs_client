@@ -2,6 +2,7 @@ package esprit.javafx;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,10 +31,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import tn.esprit.thewolfs_server.entity.Level;
+import tn.esprit.thewolfs_server.entity.Portfolio;
 import tn.esprit.thewolfs_server.entity.Trader;
+import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
 import tn.esprit.thewolfs_server.services.TraderServiceRemote;
 
-public class Trader1Controller implements Initializable {
+public class FXMLAdminTraderController implements Initializable {
 
 	@FXML
 	private TextField firstnametf;
@@ -43,8 +46,7 @@ public class Trader1Controller implements Initializable {
 	private TextField emailtf;
 	@FXML
 	private TextField soldetf;
-	@FXML
-	private ComboBox<Level> leveltf;
+
 	@FXML
 	private TextField passwordtf;
 	@FXML
@@ -91,7 +93,7 @@ public class Trader1Controller implements Initializable {
 	 * Initializes the controller class.
 	 */
 
-	public Trader1Controller() {
+	public FXMLAdminTraderController() {
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
@@ -129,8 +131,7 @@ public class Trader1Controller implements Initializable {
 		lastnametf.setText(trader.getLast_name());
 		emailtf.setText(trader.getEmail());
 		passwordtf.setText(trader.getPassword());
-		leveltf.setValue(trader.getLevel());
-	//	soldetf.setText(trader.getSolde().toString());
+	    soldetf.setText(trader.getSolde().toString());
 
 	}
 
@@ -144,7 +145,7 @@ public class Trader1Controller implements Initializable {
 	@FXML
 	private void addTrader(ActionEvent event) throws NamingException {
 
-	/*	String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 		Context context = new InitialContext();
 		TraderServiceRemote proxy = (TraderServiceRemote) context.lookup(jndiname);
 
@@ -176,10 +177,7 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
-		if (leveltf.getValue()==null) {
-
-			valide1 = false;
-		}
+	
 		if (soldetf.getText().equals("")) {
 
 			valide1 = false;
@@ -207,7 +205,17 @@ public class Trader1Controller implements Initializable {
 					System.out.println(tradertest);	
 				
 				}else{
-					proxy.addTrader(trader);
+					//Ajouter Trader + Ajouter Portfolio et l'affecter au trader
+					String jndiNamePortfolio="thewolfs_server-ear/thewolfs_server-ejb/PortfolioService!tn.esprit.thewolfs_server.services.PortfolioServiceRemote";
+					Context contextPortfolio=new InitialContext();
+					PortfolioServiceRemote proxyPortfolio=(PortfolioServiceRemote) context.lookup(jndiNamePortfolio);
+					LocalDate today = LocalDate.now();
+					java.sql.Date creationDate = java.sql.Date.valueOf(today);
+					Float cash=0.0f;
+					Portfolio portfolio=new Portfolio(creationDate, cash);
+					Integer idTrader=proxy.addTrader(trader);
+					Integer idPortfolio =proxyPortfolio.addPortfolio(portfolio);
+				    proxyPortfolio.assignPortfolioToTrader(idTrader, idPortfolio);
 					List<Trader> list = proxy.dislayTrader();
 					ObservableList<Trader> items = FXCollections.observableArrayList(list);
 					tableviewtrader.setItems(items);
@@ -215,14 +223,13 @@ public class Trader1Controller implements Initializable {
 					lastnametf.setText("");
 					emailtf.setText("");
 					passwordtf.setText("");
-					leveltf.setValue(null);
 					soldetf.setText("");
 					Alert alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("Trader adding");
 					alert.setHeaderText("succesful");
 					alert.showAndWait();
 			}
-			}*/
+			}
 		
 		}
 		
@@ -232,7 +239,7 @@ public class Trader1Controller implements Initializable {
 	@FXML
 	private void updateTrader(ActionEvent event) throws NamingException {
 
-	/*	String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
+		String jndiname = "thewolfs_server-ear/thewolfs_server-ejb/TraderService!tn.esprit.thewolfs_server.services.TraderServiceRemote";
 		Context context = new InitialContext();
 		TraderServiceRemote proxy = (TraderServiceRemote) context.lookup(jndiname);
          
@@ -259,7 +266,7 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
-		
+
 		if(soldetf.getText().equals("")){
 			valide1 = false;
 		}
@@ -274,7 +281,6 @@ public class Trader1Controller implements Initializable {
 		lastnametf.setText("");
 		emailtf.setText("");
 		passwordtf.setText("");
-		leveltf.setValue(null);
 		soldetf.setText("");
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Trader updating");
@@ -287,7 +293,7 @@ public class Trader1Controller implements Initializable {
 			alert.setHeaderText("you have an empty field");
 			alert.showAndWait();
 			
-		}*/
+		}
 	}
 
 	@FXML
@@ -306,7 +312,6 @@ public class Trader1Controller implements Initializable {
 		lastnametf.setText("");
 		emailtf.setText("");
 		passwordtf.setText("");
-		leveltf.setValue(null);
 		soldetf.setText("");
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -361,7 +366,6 @@ public class Trader1Controller implements Initializable {
 			lastnametf.setText("");
 			emailtf.setText("");
 			passwordtf.setText("");
-			leveltf.setValue(null);
 			soldetf.setText("");
 
 		} catch (NamingException e) {
@@ -408,3 +412,4 @@ public class Trader1Controller implements Initializable {
 	    }*/
 
 }
+

@@ -47,7 +47,7 @@ public class LoginTraderController {
 		    }else if (s.equals("level")){
 		    	
 		    	try {
-		 			x = new Scene(FXMLLoader.load(getClass().getResource("FXMLDocument.fxml")));
+		 			x = new Scene(FXMLLoader.load(getClass().getResource("SpaceTraderInterface.fxml")));
 		 			Stage stage = new Stage();
 		 		    stage.setScene(x);
 		 		    stage.show();

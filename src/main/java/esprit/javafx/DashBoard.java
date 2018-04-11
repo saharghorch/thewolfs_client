@@ -15,13 +15,15 @@ public class DashBoard extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLClient.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+
+
+        Parent root = FXMLLoader.load(getClass().getResource("LoginTrader.fxml"));
+         Scene scene = new Scene(root);
+         stage.setScene(scene);
         stage.show();
     }
 
-    /**
+    /**s
      * @param args the command line arguments
      */
     public static void main(String[] args) {

@@ -27,12 +27,12 @@
       </TableView>
       <ImageView fitHeight="45.0" fitWidth="42.0" layoutX="422.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/06-04-2018%203otla/thewolfs_client/src/main/java/esprit/icons/check.png" />
+            <Image url="@../icons/check.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="42.0" layoutX="659.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/06-04-2018%203otla/thewolfs_client/src/main/java/esprit/icons/Delete.png" />
+            <Image url="@../icons/Delete.png" />
          </image>
       </ImageView>
       <Button layoutX="701.0" layoutY="123.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #2A3F54;" text="moins notés" textFill="WHITE" />

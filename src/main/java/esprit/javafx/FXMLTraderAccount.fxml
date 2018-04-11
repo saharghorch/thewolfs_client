@@ -9,30 +9,24 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="608.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.AccountInterfaceController">
+<AnchorPane prefHeight="608.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderAccountController">
    <children>
       <Label layoutX="134.0" layoutY="239.0" text="Currency" textFill="#4059a9" />
       <Label layoutX="137.0" layoutY="288.0" text="isActive" textFill="#4059a9" />
       <ComboBox fx:id="currencyCB" layoutX="201.0" layoutY="235.0" prefWidth="150.0" />
       <ComboBox fx:id="isActiveCB" layoutX="201.0" layoutY="284.0" prefWidth="150.0" />
-      <TableView fx:id="tableview" layoutX="501.0" layoutY="180.0" prefHeight="316.0" prefWidth="423.0">
+      <TableView fx:id="tableview" layoutX="513.0" layoutY="180.0" prefHeight="316.0" prefWidth="367.0">
          <columns>
-            <TableColumn fx:id="amountAccountCol" prefWidth="98.0" text="Amount" />
-            <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="88.0" text="Currency" />
-            <TableColumn fx:id="isActiveAccountCol" prefWidth="75.0" text="isActive" />
-            <TableColumn fx:id="idAccountCol" prefWidth="83.0" text="IdAccount" />
-            <TableColumn fx:id="idTraderCol" prefWidth="83.0" text="IdTrader" />
+            <TableColumn fx:id="amountAccountCol" prefWidth="132.0" text="Amount" />
+            <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="118.0" text="Currency" />
+            <TableColumn fx:id="isActiveAccountCol" prefWidth="115.0" text="isActive" />
          </columns>
       </TableView>
-      <Label layoutX="135.0" layoutY="338.0" text="idTrader" textFill="#4059a9" />
-      <ComboBox fx:id="idTraderCB" layoutX="201.0" layoutY="334.0" prefWidth="150.0" />
       <Button fx:id="addAccountBtn" layoutX="53.0" layoutY="388.0" mnemonicParsing="false" onAction="#addAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Add New Account" textFill="WHITE" />
       <Button fx:id="updateAccountBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Update Account" textFill="WHITE" />
       <Button fx:id="deleteAccountBtn" layoutX="53.0" layoutY="477.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Remove Account" textFill="WHITE" />
-      <Button fx:id="assignAccountToTraderBtn" layoutX="25.0" layoutY="555.0" mnemonicParsing="false" onAction="#assignAccountToTrader" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: #2A3F54;" text="Assign Account To Trader" textFill="WHITE" />
       <Button fx:id="searchForAccountBtn" layoutX="778.0" layoutY="116.0" mnemonicParsing="false" onAction="#findAccountByAmount" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #2A3F54;" text="Search" textFill="WHITE" />
       <JFXTextField fx:id="searchAccountTF" labelFloat="true" layoutX="526.0" layoutY="116.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Search For Account" />
-      <JFXTextField fx:id="idTraderTF" labelFloat="true" layoutX="196.0" layoutY="548.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" />
       <JFXTextField fx:id="amountTF" labelFloat="true" layoutX="201.0" layoutY="180.0" maxWidth="370.0" minWidth="140.0" prefHeight="31.0" prefWidth="150.0" promptText="Amount" />
       <Separator layoutY="77.0" prefHeight="4.0" prefWidth="1203.0" />
       <Label layoutX="39.0" layoutY="37.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Account Management" />
