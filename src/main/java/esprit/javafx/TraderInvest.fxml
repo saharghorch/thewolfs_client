@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="656.0" prefWidth="668.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.TraderInvestController">
+   <children>
+      <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="IDECA 2.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <Button fx:id="returnbtn" mnemonicParsing="false" onAction="#onReturn" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #222D32;" text="Return" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </right>
+      </JFXToolbar>
+      <AnchorPane fx:id="holderPane" layoutX="130.0" layoutY="161.0" prefHeight="334.0" prefWidth="406.0">
+         <children>
+            <JFXTextField fx:id="amountPTF" labelFloat="true" layoutX="30.0" layoutY="16.0" maxWidth="370.0" minWidth="199.0" prefHeight="60.0" prefWidth="327.0" promptText="Amount you want to earn in the future" />
+            <ComboBox fx:id="yearscombo" layoutX="169.0" layoutY="302.0" prefHeight="42.0" prefWidth="183.0" style="-fx-background-color: #7387A8;" />
+            <JFXTextField fx:id="periodtf" labelFloat="true" layoutX="28.0" layoutY="139.0" maxWidth="370.0" minWidth="199.0" prefHeight="60.0" prefWidth="327.0" promptText="period  (howa much years)" />
+            <ComboBox fx:id="interetCombo" layoutX="172.0" layoutY="233.0" prefHeight="42.0" prefWidth="183.0" style="-fx-background-color: #7387A8;" />
+            <Label layoutX="-121.0" layoutY="240.0" prefHeight="30.0" prefWidth="269.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Please choose the type of Interest " />
+            <Label layoutX="-46.0" layoutY="316.0" prefHeight="30.0" prefWidth="205.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="you'll pay money " />
+         </children></AnchorPane>
+      <AnchorPane layoutX="145.0" layoutY="38.0" />
+      <Label layoutY="42.0" prefHeight="60.0" prefWidth="668.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="INTELLiXX" />
+      <Button fx:id="confirmAbtn" layoutX="262.0" layoutY="557.0" mnemonicParsing="false" onAction="#confirmEarn" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #2A3F54;" text="OK" textFill="#fff8f8" />
+   </children>
+</AnchorPane>

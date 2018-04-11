@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="934.0" prefWidth="1216.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.ResultSimpleInterestController">
+     <children>
+      <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Simple Interest " />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <Label layoutX="318.0" layoutY="87.0" prefHeight="30.0" prefWidth="107.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="If you invest " />
+      <Label fx:id="Ptf" layoutX="432.0" layoutY="87.0" prefHeight="30.0" prefWidth="78.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="10 000" />
+      <Label layoutX="553.0" layoutY="87.0" prefHeight="30.0" prefWidth="345.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="The ending  value of the investment will be " />
+      <Button fx:id="acceptBtn" layoutX="372.0" layoutY="196.0" mnemonicParsing="false" onAction="#Onaccept" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #2A3F54;" text="Yes I want to invest" textFill="#fff8f8" />
+      <Button fx:id="declineBtn" layoutX="590.0" layoutY="196.0" mnemonicParsing="false" onAction="#OnDecline" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #2A3F54;" text="No, thank you " textFill="#fff8f8" />
+      <Button fx:id="returnBtn" layoutX="1073.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnReturn" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #f2f2f2;" text="Return" textFill="#2a3f54" />
+      <Label fx:id="Atf" layoutX="384.0" layoutY="135.0" prefHeight="30.0" prefWidth="78.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="10 500" />
+      <Label layoutX="524.0" layoutY="87.0" prefHeight="30.0" prefWidth="17.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="\$" />
+      <Label fx:id="periodtf" layoutX="752.0" layoutY="135.0" prefHeight="30.0" prefWidth="30.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" />
+      <Label layoutX="792.0" layoutY="135.0" prefHeight="30.0" prefWidth="56.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="year(s)" />
+      <Label layoutX="487.0" layoutY="135.0" prefHeight="30.0" prefWidth="216.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="when the interest is simple" />
+      <Label layoutX="458.0" layoutY="135.0" prefHeight="30.0" prefWidth="17.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="\$" />
+      <Label layoutX="704.0" layoutY="135.0" prefHeight="30.0" prefWidth="43.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="over" />
+      <AnchorPane fx:id="parent" layoutX="102.0" layoutY="284.0" prefHeight="600" prefWidth="1050" styleClass="parent" stylesheets="@style.css">
+         <children>
+            <LineChart fx:id="lineChart" layoutX="10.0" layoutY="14.0" prefHeight="541.0" prefWidth="1021.0" title="Interest Chart">
+               <xAxis>
+                  <NumberAxis prefHeight="32.0" prefWidth="810.0" side="BOTTOM" fx:id="x" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="y" side="LEFT" />
+               </yAxis>
+            </LineChart>
+         </children>
+      </AnchorPane>
+      
+   </children>
+   <stylesheets>
+      <URL value="@custom.css" />
+      <URL value="@style.css" />
+   </stylesheets>
+</AnchorPane>
