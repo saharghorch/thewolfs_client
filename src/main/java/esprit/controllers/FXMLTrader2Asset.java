@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package esprit.controllers;
+package esprit.javafx;
 
 import java.net.URL;
-
-
-
 import java.util.List;
-
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -18,14 +9,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -36,12 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import tn.esprit.thewolfs_server.entity.Asset;
 import tn.esprit.thewolfs_server.services.AssetServiceRemote;
 
-/**
- * FXML Controller class
- *
- * @author HP
- */
-public class AssetFXMLController implements Initializable {
+public class FXMLTrader2Asset  implements Initializable {
    
    
 
@@ -115,24 +100,6 @@ public class AssetFXMLController implements Initializable {
        
     }    
 
-    @FXML
-    private void add(ActionEvent event) throws NamingException {
-    	String jndiName ="thewolfs_server-ear/thewolfs_server-ejb/AssetServices!tn.esprit.thewolfs_server.services.AssetServiceRemote";
-    Context ctx = new InitialContext();
-    AssetServiceRemote proxy = (AssetServiceRemote) ctx.lookup(jndiName);
-   Asset as=new Asset();
-   as.setShares_number(Integer.parseInt(TFsharesnumber.getText()));
-   as.setOption_Start_Date(java.sql.Date.valueOf(picstartdate.getValue()));
-   as.setOptions_Expiration_Date(java.sql.Date.valueOf(picexpirationdate.getValue()));
-   as.setTotal_Value(Double.parseDouble(TFtotalvalue.getText()));
-  
-   proxy.displayAllAssets();
-
-   proxy.addAsset(as);
-  
-remplir();
-  
-    }
     public void remplir() throws NamingException {
     	String jndiName ="thewolfs_server-ear/thewolfs_server-ejb/AssetServices!tn.esprit.thewolfs_server.services.AssetServiceRemote";
         Context ctx = new InitialContext();
@@ -152,31 +119,9 @@ remplir();
 		//tableviewasset.refresh();
 		tableview.setItems(data1);	
 	}
-
+  
    
-@FXML
-void update(ActionEvent event) throws NamingException {
-	String jndiName ="thewolfs_server-ear/thewolfs_server-ejb/AssetServices!tn.esprit.thewolfs_server.services.AssetServiceRemote";
-	Context ctx = new InitialContext();
-	AssetServiceRemote proxy=(AssetServiceRemote) ctx.lookup (jndiName);
-        if (tableview.getSelectionModel().getSelectedItem() != null) {
-            Asset a = tableview.getSelectionModel().getSelectedItem();
-            a.setShares_number((Integer.valueOf(TFsharesnumber.getText())));
-            a.setOption_Start_Date(java.sql.Date.valueOf(picstartdate.getValue()));
-            a.setOption_Start_Date(java.sql.Date.valueOf(picexpirationdate.getValue()));
-            a.setTotal_Value(Double.valueOf(TFtotalvalue.getText()));
-            
-     	proxy.updateAsset(a);
-        	 try {
-        		 remplir();
-   			} catch (NamingException e) {
-   				// TODO Auto-generated catch block
-   				e.printStackTrace();
-   			}
-            
-}
 
-}
 
 
  public void mouse() {
@@ -187,18 +132,14 @@ void update(ActionEvent event) throws NamingException {
 	}
 
 }
- public void delete(ActionEvent event) throws NamingException {
+ public void calcul(ActionEvent event) throws NamingException {
 	 String jndiName ="thewolfs_server-ear/thewolfs_server-ejb/AssetServices!tn.esprit.thewolfs_server.services.AssetServiceRemote";
 		Context ctx = new InitialContext();
 		AssetServiceRemote proxy=(AssetServiceRemote) ctx.lookup (jndiName);
 		int idAsset = tableview.getSelectionModel().getSelectedItem().getId();
-		proxy.deleteAsset(idAsset);
-		List<Asset> list = proxy.displayAllAssets();
-		ObservableList<Asset> items = FXCollections.observableArrayList(list);
-		tableview.setItems(items);
-		
+		 Asset ass = new Asset(idAsset);
+		 
  }
-
  
     
 }
