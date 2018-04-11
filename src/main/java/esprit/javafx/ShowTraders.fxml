@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="798.0" prefWidth="1271.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.ShowTradersController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="5.0" layoutY="27.0" prefHeight="786.0" prefWidth="1392.0">
+         <children>
+            <TableView fx:id="tableviewtrader" layoutX="46.0" layoutY="100.0" prefHeight="478.0" prefWidth="352.0">
+               <columns>
+                  <TableColumn fx:id="firstnamecol" prefWidth="172.0" text="First Name" />
+                  <TableColumn fx:id="lastnamecol" prefWidth="177.0" text="Last Name" />
+               </columns>
+            </TableView>
+            <AnchorPane layoutX="533.0" layoutY="69.0" prefHeight="540.0" prefWidth="389.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="232.0" fitWidth="244.0" layoutX="73.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../icons/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="firsttf" layoutX="81.0" layoutY="223.0" prefHeight="29.0" prefWidth="95.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="First Name" />
+                  <VBox layoutX="103.0" layoutY="291.0" prefHeight="85.0" prefWidth="207.0">
+                     <children>
+                        <Label fx:id="leveltf" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="level">
+                           <graphic>
+                              <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                           </graphic>
+                        </Label>
+                        <Label fx:id="emailtf" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Email">
+                           <graphic>
+                              <MaterialDesignIconView fill="#7387a8" glyphName="SHOPPING" size="17.0" wrappingWidth="22.000005185604095" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="37.0" layoutY="414.0" spacing="10.0">
+                     <children>
+                        <VBox />
+                        <VBox />
+                        <VBox />
+                        <VBox />
+                     </children>
+                  </VBox>
+                  <ProgressBar layoutX="83.0" layoutY="499.0" minHeight="-Infinity" prefHeight="10.0" prefWidth="200.0" progress="0.81" styleClass="mprogress-bar" />
+                  <Label layoutX="81.0" layoutY="452.0" prefHeight="20.0" prefWidth="149.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Money" />
+                  <Label fx:id="lasttf" layoutX="226.0" layoutY="223.0" prefHeight="29.0" prefWidth="95.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Last Name" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="communicatebtn" layoutX="621.0" layoutY="642.0" mnemonicParsing="false" onAction="#OnCommunicate" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: #2A3F54;" text="Communicate" textFill="#fff8f8" />
+         </children>
+      </AnchorPane>
+      <Separator layoutY="79.0" prefHeight="3.0" prefWidth="1400.0" />
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Show Traders" />
+   </children>
+</AnchorPane>

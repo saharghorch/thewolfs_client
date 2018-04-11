@@ -56,6 +56,14 @@ public class AdminController implements Initializable {
     private TableColumn<Options, Float> premiumPrice;
     @FXML
     private TableColumn<Options, Date> date;
+    @FXML
+    private TableColumn<Options, Float> StockPrice;
+
+    @FXML
+    private TableColumn<Options,Float> volatility;
+
+    @FXML
+    private TableColumn<Options, String> time_to_expiry;
 
    
     @FXML
@@ -159,6 +167,17 @@ System.out.println("ajout avec succes");
 		arr= proxy.findAll();
 		System.out.println(arr);
     	for (int i=0;i<arr.size();i++){
+    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+    	if (Integer.parseInt(aa)>0){
+        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+    	}
+    	else {
+    		String e = "Expiré";
+    	
+    		arr.get(i).setTime_to_expiry(e);
+    		
+    		
+    	}
     	list.add(arr.get(i));	
     	}
     
@@ -173,6 +192,9 @@ System.out.println("ajout avec succes");
     	counterparty.setCellValueFactory(new PropertyValueFactory<Options, Integer>("counterparty"));
     	trader.setCellValueFactory(new PropertyValueFactory<Options, Integer>("trader"));
     	user.setCellValueFactory(new PropertyValueFactory<Options, Integer>("user"));
+    	StockPrice.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+    	volatility.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+    	time_to_expiry.setCellValueFactory(new PropertyValueFactory<Options, String>("time_to_expiry"));
 		tableViewOption.setItems(list);
     }
     

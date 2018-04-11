@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.AccueilClientController">
+     <children>
+      <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Client Home" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <VBox layoutX="41.0" layoutY="102.0" prefHeight="554.0" prefWidth="1164.0" spacing="50.0">
+         <children>
+            <HBox prefHeight="56.0" prefWidth="1133.0" spacing="16.0" />
+            <HBox prefHeight="128.0" prefWidth="1164.0" spacing="16.0">
+               <children>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #00C0EF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #009ABF;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdEurTF" prefHeight="42.0" prefWidth="123.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/EUR" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                        <ImageView fitHeight="85.0" fitWidth="98.0" layoutX="146.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/Euro_Symbol_PNG_Clip_Art_Image.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #00A65A; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #008548;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdaudlabel" prefHeight="42.0" prefWidth="143.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/AUD" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                        <ImageView fitHeight="102.0" fitWidth="99.0" layoutX="155.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/usd.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #F39C12; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #C37D0E;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdgbplabel" prefHeight="42.0" prefWidth="174.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/GBP" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #DD4B39; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #B13C2E;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdchflabel" prefHeight="42.0" prefWidth="125.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/CHF" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox prefHeight="130.0" prefWidth="1164.0" spacing="16.0">
+               <children>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #ea17d9; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #a10596;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdjpylabel" prefHeight="42.0" prefWidth="123.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/JPY" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                        <ImageView fitHeight="106.0" fitWidth="88.0" layoutX="166.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/yen.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="277.0" style="-fx-background-color: #d2e40c; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #939d07;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdcadlabel" prefHeight="42.0" prefWidth="143.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/CAD" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #0e6dd3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #0756ab;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="usdaedlabel" prefHeight="42.0" prefWidth="174.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="USD/AED" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: #96948f; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                     <children>
+                        <Pane layoutY="101.0" prefHeight="27.0" prefWidth="277.0" style="-fx-background-color: #494846;" />
+                        <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+                           <children>
+                              <Label fx:id="eurgbplabel" prefHeight="42.0" prefWidth="125.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" />
+                              <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="EUR/GBP" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                        <ImageView fitHeight="99.0" fitWidth="106.0" layoutX="147.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/gbp.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children></HBox>
+         </children>
+      </VBox>
+      
+   </children>
+</AnchorPane>

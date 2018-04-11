@@ -259,10 +259,7 @@ public class Trader1Controller implements Initializable {
 
 			valide1 = false;
 		}
-		if (leveltf.getValue()== null) {
-
-			valide1 = false;
-		}
+		
 		if(soldetf.getText().equals("")){
 			valide1 = false;
 		}

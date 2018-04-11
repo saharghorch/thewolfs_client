@@ -14,14 +14,14 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="1064.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.TraderOptionController">
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.TraderOptionController">
    <children>
       <ImageView fitHeight="627.0" fitWidth="1132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../finance.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="TableOptionsAcc" layoutX="412.0" layoutY="100.0" prefHeight="329.0" prefWidth="491.0">
+      <TableView fx:id="TableOptionsAcc" layoutX="412.0" layoutY="100.0" prefHeight="329.0" prefWidth="747.0">
         <columns>
           <TableColumn fx:id="date" prefWidth="75.0" text="date" />
           <TableColumn fx:id="PremiumPrice" prefWidth="104.0" text="Premium Price" />
@@ -29,6 +29,9 @@
             <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
             <TableColumn fx:id="asset" prefWidth="75.0" text="Asset" />
             <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="StockPrice" prefWidth="75.0" text="Stock Price" />
+            <TableColumn fx:id="volatility" prefWidth="75.0" text="Volatility" />
+            <TableColumn fx:id="time_to_expiry" prefWidth="104.0" text="Time to expiry" />
         </columns>
       </TableView>
       <Label layoutX="27.0" layoutY="65.0" prefHeight="35.0" prefWidth="162.0" text="Add an option : ">
@@ -83,10 +86,5 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="877.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../logo.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

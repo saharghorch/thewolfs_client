@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="656.0" prefWidth="668.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.ChoixTraderController">
+   <children>
+      <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="IDECA 2.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <Button fx:id="returnbtn" mnemonicParsing="false" onAction="#onReturn" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #222D32;" text="Return" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </right>
+      </JFXToolbar>
+      <AnchorPane fx:id="holderPane" layoutX="145.0" layoutY="102.0" prefHeight="334.0" prefWidth="406.0">
+         <children>
+            <Button fx:id="earnBtn" layoutX="19.0" layoutY="126.0" mnemonicParsing="false" onAction="#Onearn" prefHeight="99.0" prefWidth="374.0" style="-fx-background-color: #2A3F54;" text="From present value to future value (P--&gt;A)" textFill="#fff8f8" />
+            <Button fx:id="investBtn" layoutX="18.0" layoutY="313.0" mnemonicParsing="false" onAction="#Oninvest" prefHeight="99.0" prefWidth="374.0" style="-fx-background-color: #2A3F54;" text="from Future value to present value ( A--&gt;P)" textFill="#fff8f8" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="145.0" layoutY="38.0" />
+      <Label layoutY="42.0" prefHeight="60.0" prefWidth="668.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="INTELLiXX" />
+   </children>
+</AnchorPane>
