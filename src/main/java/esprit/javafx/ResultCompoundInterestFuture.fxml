@@ -15,7 +15,7 @@
       <Label fx:id="Atf" layoutX="400.0" layoutY="70.0" prefHeight="30.0" prefWidth="78.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="11.5" />
       <Label layoutX="536.0" layoutY="70.0" prefHeight="30.0" prefWidth="420.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text=" as an ending value of the investment you should put " />
       <Button fx:id="acceptBtn" layoutX="381.0" layoutY="179.0" mnemonicParsing="false" onAction="#Onaccept" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #2A3F54;" text="Yes I want to invest" textFill="#fff8f8" />
-      <Button fx:id="declineBtn" layoutX="644.0" layoutY="170.0" mnemonicParsing="false" onAction="#OnDecline" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #2A3F54;" text="No, thank you " textFill="#fff8f8" />
+      <Button fx:id="declineBtn" layoutX="644.0" layoutY="179.0" mnemonicParsing="false" onAction="#OnDecline" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #2A3F54;" text="No, thank you " textFill="#fff8f8" />
       <Button fx:id="returnBtn" layoutX="1073.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnReturn" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #f2f2f2;" text="Return" textFill="#2a3f54" />
       <Label fx:id="Ptf" layoutX="304.0" layoutY="118.0" prefHeight="30.0" prefWidth="78.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="10" />
       <Label layoutX="461.0" layoutY="70.0" prefHeight="30.0" prefWidth="17.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="\$" />
@@ -26,7 +26,7 @@
       <Label layoutX="665.0" layoutY="118.0" prefHeight="30.0" prefWidth="43.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="over" />
       <AnchorPane fx:id="parent" layoutX="113.0" layoutY="302.0" prefHeight="514.0" prefWidth="1050" styleClass="parent" stylesheets="@style.css">
          <children>
-            <LineChart fx:id="lineChart" layoutX="10.0" layoutY="15.0" prefHeight="477.0" prefWidth="1021.0" title="Interest Chart">
+            <LineChart fx:id="lineChart" layoutX="10.0" layoutY="15.0" prefHeight="431.0" prefWidth="1021.0" title="Interest Chart">
                <xAxis>
                   <NumberAxis prefHeight="32.0" prefWidth="810.0" side="BOTTOM" fx:id="x" />
                </xAxis>
@@ -34,6 +34,8 @@
                   <NumberAxis fx:id="y" side="LEFT" />
                </yAxis>
             </LineChart>
+            <Label layoutX="554.0" layoutY="425.0" prefHeight="21.0" prefWidth="168.0" text="The present Value" textFill="#ebd004" />
+            <Label layoutX="554.0" layoutY="453.0" prefHeight="21.0" prefWidth="168.0" text="The future Value" textFill="#eb9605" />
          </children>
       </AnchorPane>
       

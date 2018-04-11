@@ -65,28 +65,29 @@ public class ResultCompoundInterestFutureController implements Initializable {
 		 DecimalFormat formaa = new DecimalFormat(".00");
 
 		//remplissage des textfields
-		Atf.setText(String.valueOf(p));
+		Atf.setText(formaa.format(p));
 		periodtf.setText(String.valueOf(n));
-		Ptf.setText(String.valueOf(s));}
-		/*System.out.println(s);
+		Ptf.setText(formaa.format(s));
+		
 		
 
 		//réglage de l'echelle
-	    y.setAutoRanging(false);
-	    y.setLowerBound(s-5000);
-	    y.setUpperBound(p+1000);
-	    y.setTickUnit((s-p)/n);
-	 fillChart();/*
+	   /* y.setAutoRanging(false);
+	    y.setLowerBound(p-1000);
+	    y.setUpperBound(s+10000);
+	    y.setTickUnit((p-s)/n);*/
+	     fillChart();
 		
 	}
-	/*
+	
 	private void fillChart() {
-		Double p =TraderEarnController.principale;
-		int n =TraderEarnController.nbyears;
-		Double s =TraderEarnController.Simple;
+		Double p =TraderInvestController.FV;
+		int n =TraderInvestController.nbyears;
+		Double s =TraderInvestController.Compound;
         XYChart.Series series = new XYChart.Series(); 
         
-        	Double vertical = Double.valueOf((s-p)/n);
+        	    Double vertical = Double.valueOf((p-s)/n);
+        	   
             	for(int i=0;i<n+1;i++){
         		series.getData().add(new XYChart.Data(i,p+(vertical*i)));
         	}
@@ -99,7 +100,7 @@ public class ResultCompoundInterestFutureController implements Initializable {
 
        
         lineChart.getData().addAll(series,series2);
-    }*/
+    }
 
 	   @FXML
 	    void OnDecline(ActionEvent event) throws IOException {

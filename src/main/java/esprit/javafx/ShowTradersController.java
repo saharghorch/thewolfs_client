@@ -12,6 +12,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import com.ning.http.util.ProxyUtils;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -92,9 +94,21 @@ public class ShowTradersController implements Initializable{
 		 /*
 		  Account account=new Account(Float.parseFloat(amountTF.getText()), currencyCB.getValue(), isActiveCB.getValue());
     			account.setTrader(proxyTrader.findTraderById(idTraderConnected));
-    			int idAccount = proxy.addAccount(account); 
-		  */
-		 //User client =new User(first_name, last_name, gender, solde, birth_date, email, phone, password, role, trader)
+    			int idAccount = proxy.addAccount(account); */
+		   String jndinameU="thewolfs_server-ear/thewolfs_server-ejb/UserService!tn.esprit.thewolfs_server.services.UserServiceRemote";
+			try {
+		 Context contextU= new InitialContext();
+			UserServiceRemote proxyUser=(UserServiceRemote) contextU.lookup(jndinameU);
+		User client =proxyUser.findUserById(1);
+		//System.out.println(client);
+		Trader trader=tableviewtrader.getSelectionModel().getSelectedItem();
+		
+		client.setTrader(trader);
+		  proxyUser.updateUser(client);}
+		catch (NamingException e) {
+			e.printStackTrace();}
+		
+		
 		Parent root = FXMLLoader.load(getClass().getResource("ChoixTrader.fxml"));
  		Scene newScene= new Scene(root);
  		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
