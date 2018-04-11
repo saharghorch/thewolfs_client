@@ -1,5 +1,8 @@
 package esprit.javaee;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +18,9 @@ import tn.esprit.thewolfs_server.services.OptionsRemote;
 //import tn.esprit.thewolfs_server.services.OptionsRemote;
 import tn.esprit.thewolfs_server.entity.*;
 public class OptionManager {
-	public static void main(String[] args) throws NamingException {
+	public static void main(String[] args) throws NamingException, ParseException {
 	String jndiname="thewolfs_server-ear/thewolfs_server-ejb/OptionsManager!tn.esprit.thewolfs_server.services.OptionsRemote";
 		Context context = new InitialContext();
-
-		//OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-
 		OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 		
 		Options option = new Options();
@@ -29,7 +29,7 @@ public class OptionManager {
 		option.setExpiration_date(null);
 		option.setType(Type.Call);
 		option.setStatus(Status.Canceled);
-		//option.setAsset(null);
+		option.setAsset(null);
 		option.setTrader(null);
 		option.setCounterparty(null);
 		option.setUser(null);
@@ -43,7 +43,7 @@ public class OptionManager {
 	op.setExpiration_date(null);
 	op.setType(Type.Put);
 	op.setStatus(Status.onHold);
-	//op.setAsset(null);
+	op.setAsset(null);
 	op.setTrader(null);
 	op.setCounterparty(null);
 	op.setUser(null);
@@ -54,10 +54,32 @@ public class OptionManager {
 	//proxy.deleteOption(OptionIdd);
 	
 //Options opp = proxy.getOptionById(1);
-List<Options> arr = new ArrayList();
+//List<Options> arr = new ArrayList();
 //arr= proxy.findAll();
-System.out.println(arr);
+//System.out.println(arr);
+	Trader k = new Trader();
+	int ii=1;
+	k=proxy.findTraderById(ii);
+	//System.out.println(k);
+List<Options> arrs = new ArrayList();
+arrs = proxy.findOptionsByType(Type.Put);
+System.out.println(arrs);
+//arrs= proxy.findOptionsValid(Status.Valid);
+//System.out.println(arrs);
 
+
+//List<Asset> arrAsset = new ArrayList();
+//arrAsset=proxy.findAssetType();
+//System.out.println(arrAsset);
 //proxy.UpdateOptionStatus(OptionIddd);	
+	SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+	Date dd=dateFormat.parse("11/04/2018");
+	String a = proxy.TimeToExpiry(dd);
+	//System.out.println(a);
+	
+//Float am = proxy.FindAmountTrader(1);
+//System.out.println(am);
+	//proxy.UpdateAmount(1, 2500);
+	
 }
 }

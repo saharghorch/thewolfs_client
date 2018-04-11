@@ -1,15 +1,16 @@
 package esprit.javaee;
 
 
-//import java.awt.List;
+
+
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
 import tn.esprit.thewolfs_server.entity.Account;
-import tn.esprit.thewolfs_server.entity.Currency;
 import tn.esprit.thewolfs_server.services.AccountServiceRemote;
-import java.util.List;
 
 
 public class TestServiceAccount {
@@ -18,8 +19,8 @@ public class TestServiceAccount {
 String jndiName="thewolfs_server-ear/thewolfs_server-ejb/AccountService!tn.esprit.thewolfs_server.services.AccountServiceRemote";
 Context context=new InitialContext();
 AccountServiceRemote proxy=(AccountServiceRemote) context.lookup(jndiName);
-//Account account1=new Account(50f, Currency.EUR);
-//System.out.println(proxy.addAccount(account1));
+/*Account account1=new Account(1000f, Currency.USD);
+System.out.println(proxy.addAccount(account1));*/
 //account1.setAmount(2000f);
 //proxy.updateAccount(account1);
 //proxy.removeAccount();

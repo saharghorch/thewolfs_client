@@ -1,7 +1,5 @@
 package esprit.javaee;
 
-import java.util.List;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

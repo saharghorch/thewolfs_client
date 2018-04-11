@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javaee.TraderOptionController">
+   <children>
+      <ImageView fitHeight="627.0" fitWidth="1132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../finance.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="TableOptionsAcc" layoutX="412.0" layoutY="100.0" prefHeight="329.0" prefWidth="747.0">
+        <columns>
+          <TableColumn fx:id="date" prefWidth="75.0" text="date" />
+          <TableColumn fx:id="PremiumPrice" prefWidth="104.0" text="Premium Price" />
+            <TableColumn fx:id="StrikePrice" prefWidth="88.0" text="Strike Price" />
+            <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="asset" prefWidth="75.0" text="Asset" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="StockPrice" prefWidth="75.0" text="Stock Price" />
+            <TableColumn fx:id="volatility" prefWidth="75.0" text="Volatility" />
+            <TableColumn fx:id="time_to_expiry" prefWidth="104.0" text="Time to expiry" />
+        </columns>
+      </TableView>
+      <Label layoutX="27.0" layoutY="65.0" prefHeight="35.0" prefWidth="162.0" text="Add an option : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#1316c2" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="PemiumPrice" layoutX="131.0" layoutY="199.0" prefHeight="25.0" prefWidth="184.0" />
+      <TextField fx:id="StrikePricee" layoutX="131.0" layoutY="252.0" prefHeight="25.0" prefWidth="184.0" />
+      <ComboBox fx:id="ComboAsset" layoutX="131.0" layoutY="148.0" onAction="#OnActionComboAsset" prefHeight="25.0" prefWidth="184.0" />
+      <ComboBox fx:id="ComboType" layoutX="131.0" layoutY="310.0" onAction="#OnActionComboType" prefHeight="25.0" prefWidth="184.0" />
+      <DatePicker fx:id="date_exp" layoutX="131.0" layoutY="365.0" prefHeight="25.0" prefWidth="184.0" />
+      <Label layoutX="46.0" layoutY="151.0" text="Asset : " textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="17.0" layoutY="202.0" text="Premium Price :" textFill="#2a18a1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="27.0" layoutY="255.0" text="Strike Price : " textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="49.0" layoutY="313.0" text="Type :" textFill="#3618ad">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="49.0" layoutY="368.0" text="Date : " textFill="#2317a4">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Button fx:id="AddOption" layoutX="116.0" layoutY="480.0" mnemonicParsing="false" onAction="#AddOption" prefHeight="42.0" prefWidth="176.0" text="Add Option" textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="ButtonAsTrader" layoutX="465.0" layoutY="480.0" mnemonicParsing="false" onAction="#OnActionAsTrader" prefHeight="42.0" prefWidth="162.0" text="Me as a trader" textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonAsCounterparty" layoutX="702.0" layoutY="480.0" mnemonicParsing="false" onAction="#OnActionAsCounterparty" prefHeight="42.0" prefWidth="156.0" text="Me as a counterparty" textFill="#2c18ae">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -57,6 +56,14 @@ public class AdminController implements Initializable {
     private TableColumn<Options, Float> premiumPrice;
     @FXML
     private TableColumn<Options, Date> date;
+    @FXML
+    private TableColumn<Options, Float> StockPrice;
+
+    @FXML
+    private TableColumn<Options,Float> volatility;
+
+    @FXML
+    private TableColumn<Options, String> time_to_expiry;
 
    
     @FXML
@@ -106,7 +113,7 @@ public class AdminController implements Initializable {
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-		//	proxy.UpdateOptionStatus(arr.get(i).getId(),comboBoxStatus.getValue());
+			proxy.UpdateOptionStatus(arr.get(i).getId(),comboBoxStatus.getValue());
 			afficher(proxy);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -127,25 +134,25 @@ public class AdminController implements Initializable {
 			
 			context = new InitialContext();
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		try {
-			//System.out.println("ccccccccccccccccc");
+			
 		
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
-			//System.out.println("eeeeeeeeeeeeeeeeeeee");
+			
 			Options option = new Options();
-			//System.out.println(textStrikePrice.getText());
+			
 option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
 
-//System.out.println(option);
+
 proxy.addOption(option);
 System.out.println("ajout avec succes");
 }
 		catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     }
@@ -157,9 +164,20 @@ System.out.println("ajout avec succes");
     public void afficher(OptionsRemote proxy){
     	
     	tableViewOption.getItems().clear();
-	//	arr= proxy.findAll();
+		arr= proxy.findAll();
 		System.out.println(arr);
     	for (int i=0;i<arr.size();i++){
+    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
+    	if (Integer.parseInt(aa)>0){
+        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
+    	}
+    	else {
+    		String e = "Expiré";
+    	
+    		arr.get(i).setTime_to_expiry(e);
+    		
+    		
+    	}
     	list.add(arr.get(i));	
     	}
     
@@ -174,6 +192,9 @@ System.out.println("ajout avec succes");
     	counterparty.setCellValueFactory(new PropertyValueFactory<Options, Integer>("counterparty"));
     	trader.setCellValueFactory(new PropertyValueFactory<Options, Integer>("trader"));
     	user.setCellValueFactory(new PropertyValueFactory<Options, Integer>("user"));
+    	StockPrice.setCellValueFactory(new PropertyValueFactory<Options,Float>("stock_price"));
+    	volatility.setCellValueFactory(new PropertyValueFactory<Options,Float>("volatility"));
+    	time_to_expiry.setCellValueFactory(new PropertyValueFactory<Options, String>("time_to_expiry"));
 		tableViewOption.setItems(list);
     }
     
@@ -185,15 +206,16 @@ System.out.println("ajout avec succes");
 		try {
 			context = new InitialContext();
 		} catch (NamingException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
 		try {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
+			System.out.println(arr.get(i).getId());
 			proxy.deleteOption(arr.get(i).getId());
 			afficher(proxy);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -217,7 +239,7 @@ System.out.println("ajout avec succes");
 		try {
 			context = new InitialContext();
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		try {
@@ -225,7 +247,7 @@ System.out.println("ajout avec succes");
 			afficher(proxy);
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

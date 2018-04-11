@@ -1,18 +1,18 @@
 package esprit.javaee;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
-import tn.esprit.thewolfs_server.entity.Account;
-import tn.esprit.thewolfs_server.entity.Options;
-import tn.esprit.thewolfs_server.entity.Portfolio;
-import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import tn.esprit.thewolfs_server.entity.Options;
+import tn.esprit.thewolfs_server.entity.Portfolio;
+import tn.esprit.thewolfs_server.services.OptionsRemote;
+import tn.esprit.thewolfs_server.services.PortfolioServiceRemote;
 public class TestServicePortfolio {
 
 	public static void main(String[] args) throws NamingException, ParseException{
@@ -21,12 +21,16 @@ public class TestServicePortfolio {
 		Context context=new InitialContext();
 		PortfolioServiceRemote proxy=(PortfolioServiceRemote) context.lookup(jndiName);
 		SimpleDateFormat dateFormat =new SimpleDateFormat("dd/MM/yyyy");
+		
+		String jndiNameOptions="thewolfs_server-ear/thewolfs_server-ejb/OptionsManager!tn.esprit.thewolfs_server.services.OptionsRemote";
+		Context contextOptions=new InitialContext();
+		OptionsRemote proxyOptions=(OptionsRemote) contextOptions.lookup(jndiNameOptions);
+		
 		//Ajout d'un Portfolio
-		/*
-		Date creation_date=dateFormat.parse("14/02/2018");
-		Portfolio portfolio=new Portfolio(creation_date,56000f);
+		Date creation_date=dateFormat.parse("14/03/2018");
+		Portfolio portfolio=new Portfolio(creation_date,50000f);
 	    System.out.println(proxy.addPortfolio(portfolio));
-	    */
+	    
 	    //Mise A jour d'un Portfolio
 		/*
 		Portfolio portfolio=new Portfolio();
@@ -41,14 +45,14 @@ public class TestServicePortfolio {
 	    //proxy.removePortfolio();
 	    
 	    //Affichage d'un Portfolio
-	     System.out.println(proxy.displayPortfolioById(8));
+	     //System.out.println(proxy.displayPortfolioById(8));
 	    
 	    //Affichage des Portfolios
-	   List<Portfolio> portfolios= proxy.displayAllPortfolios();
+	 /*  List<Portfolio> portfolios= proxy.displayAllPortfolios();
 	    for(Portfolio p : portfolios)
 	    {
 	    	System.out.println(p);
-	    }
+	    }*/
 	    
 	  
 	  /*Portfolio portfolio=new Portfolio();
@@ -57,7 +61,11 @@ public class TestServicePortfolio {
 	   /*Integer idTrader=proxy.getIdTraderByPortfolioId(9);
 	   System.out.println(idTrader);*/
 	    
-	    System.out.println(proxy.findPortfolioByCash(15500f));
+	   // System.out.println(proxy.findPortfolioByCash(15500f));
+	    
+	    //Affichage de toutes les options d'un portfolio
+	    List<Options> allOptions=proxyOptions.findAll();
+	    
 	    
 	}
 	

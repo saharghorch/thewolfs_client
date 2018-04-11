@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.AccountInterfaceController">
+<AnchorPane prefHeight="608.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.AccountInterfaceController">
    <children>
-      <Button fx:id="addAccountBtn" layoutX="51.0" layoutY="386.0" mnemonicParsing="false" onAction="#addAccount" style="-fx-background-color: #09a3ae;" text="Add New Account" />
-      <Button fx:id="deleteAccountBtn" layoutX="53.0" layoutY="481.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #09a3ae;" text="Remove Account" />
-      <Button fx:id="updateAccountBtn" layoutX="54.0" layoutY="433.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #09a3ae;" text="Update Account" />
-      <Label layoutX="37.0" layoutY="188.0" text="Amount" />
-      <Label layoutX="37.0" layoutY="239.0" text="Currency" />
-      <Label layoutX="40.0" layoutY="288.0" text="isActive" />
-      <TextField fx:id="amountTF" layoutX="108.0" layoutY="186.0" />
-      <ComboBox fx:id="currencyCB" layoutX="107.0" layoutY="237.0" prefWidth="150.0" />
-      <ComboBox fx:id="isActiveCB" layoutX="107.0" layoutY="287.0" prefWidth="150.0" />
-      <TableView fx:id="tableview" layoutX="285.0" layoutY="129.0" prefHeight="470.0" prefWidth="435.0">
+      <Label layoutX="134.0" layoutY="239.0" text="Currency" textFill="#4059a9" />
+      <Label layoutX="137.0" layoutY="288.0" text="isActive" textFill="#4059a9" />
+      <ComboBox fx:id="currencyCB" layoutX="201.0" layoutY="235.0" prefWidth="150.0" />
+      <ComboBox fx:id="isActiveCB" layoutX="201.0" layoutY="284.0" prefWidth="150.0" />
+      <TableView fx:id="tableview" layoutX="501.0" layoutY="180.0" prefHeight="316.0" prefWidth="423.0">
          <columns>
             <TableColumn fx:id="amountAccountCol" prefWidth="98.0" text="Amount" />
             <TableColumn fx:id="currencyAccountCol" minWidth="0.0" prefWidth="88.0" text="Currency" />
@@ -29,25 +24,17 @@
             <TableColumn fx:id="idTraderCol" prefWidth="83.0" text="IdTrader" />
          </columns>
       </TableView>
-      <TextField fx:id="searchAccountTF" layoutX="395.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="searchAccount" text="Search For Account" />
-      <Button fx:id="searchForAccountBtn" layoutX="570.0" layoutY="94.0" mnemonicParsing="false" onAction="#findAccountByAmount" style="-fx-background-color: #09a3ae;" text="Search" />
-      <AnchorPane layoutX="-7.0" prefHeight="82.0" prefWidth="742.0" style="-fx-background-color: #09a3ae;">
-         <children>
-            <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Admin" />
-            <Label layoutX="22.0" layoutY="33.0" text="Management Of Accounts" textFill="#224d5b">
-               <font>
-                  <Font name="Calibri Bold" size="36.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Button fx:id="assignAccountToTraderBtn" layoutX="2.0" layoutY="537.0" mnemonicParsing="false" onAction="#assignAccountToTrader" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #09a3ae;" text="Assign Account To Trader" textFill="#f83b3b">
-         <font>
-            <Font name="Arial Bold" size="12.0" />
-         </font>
-      </Button>
-      <TextField fx:id="idTraderTF" layoutX="189.0" layoutY="537.0" prefHeight="25.0" prefWidth="59.0" />
-      <Label layoutX="40.0" layoutY="338.0" text="idTrader" />
-      <ComboBox fx:id="idTraderCB" layoutX="106.0" layoutY="335.0" prefWidth="150.0" />
+      <Label layoutX="135.0" layoutY="338.0" text="idTrader" textFill="#4059a9" />
+      <ComboBox fx:id="idTraderCB" layoutX="201.0" layoutY="334.0" prefWidth="150.0" />
+      <Button fx:id="addAccountBtn" layoutX="53.0" layoutY="388.0" mnemonicParsing="false" onAction="#addAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Add New Account" textFill="WHITE" />
+      <Button fx:id="updateAccountBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Update Account" textFill="WHITE" />
+      <Button fx:id="deleteAccountBtn" layoutX="53.0" layoutY="477.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2A3F54;" text="Remove Account" textFill="WHITE" />
+      <Button fx:id="assignAccountToTraderBtn" layoutX="25.0" layoutY="555.0" mnemonicParsing="false" onAction="#assignAccountToTrader" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: #2A3F54;" text="Assign Account To Trader" textFill="WHITE" />
+      <Button fx:id="searchForAccountBtn" layoutX="778.0" layoutY="116.0" mnemonicParsing="false" onAction="#findAccountByAmount" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #2A3F54;" text="Search" textFill="WHITE" />
+      <JFXTextField fx:id="searchAccountTF" labelFloat="true" layoutX="526.0" layoutY="116.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" promptText="Search For Account" />
+      <JFXTextField fx:id="idTraderTF" labelFloat="true" layoutX="196.0" layoutY="548.0" maxWidth="370.0" minWidth="199.0" prefHeight="31.0" prefWidth="199.0" />
+      <JFXTextField fx:id="amountTF" labelFloat="true" layoutX="201.0" layoutY="180.0" maxWidth="370.0" minWidth="140.0" prefHeight="31.0" prefWidth="150.0" promptText="Amount" />
+      <Separator layoutY="77.0" prefHeight="4.0" prefWidth="1203.0" />
+      <Label layoutX="39.0" layoutY="37.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Account Management" />
    </children>
 </AnchorPane>

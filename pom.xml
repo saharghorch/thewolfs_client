@@ -11,10 +11,10 @@
   
   <dependencies>
 		<dependency>
-	<groupId>tn.esprit</groupId>
+		<groupId>tn.esprit</groupId>
 	<artifactId>thewolfs_server-ejb</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<type>ejb</type>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>ejb</type>
 		</dependency>
 
 		<dependency>

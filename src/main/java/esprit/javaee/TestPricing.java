@@ -3,8 +3,7 @@ package esprit.javaee;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import tn.esprit.thewolfs_server.services.AccountServiceRemote;
-import tn.esprit.thewolfs_server.services.Gaussian;
+
 import tn.esprit.thewolfs_server.services.PricingRemote;
 
 public class TestPricing {
