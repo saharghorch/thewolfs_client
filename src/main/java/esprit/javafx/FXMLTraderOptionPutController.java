@@ -34,7 +34,7 @@ import tn.esprit.thewolfs_server.services.AccountServiceRemote;
 public class FXMLTraderOptionPutController implements Initializable {
 	
        @FXML
-	    private TextField PutOptionPriceTF;
+	    private TextField putOptionPriceTF;
 
        @FXML
 	    private TableView<Account> tableview;
@@ -49,7 +49,7 @@ public class FXMLTraderOptionPutController implements Initializable {
 	    private TableColumn<Account, ?> isActiveAccountCol;
 
 	    @FXML
-	    private Button ByPutOptionBtn;
+	    private Button byPutOptionBtn;
 	    
 	    @FXML
 	    private Button validateAccountBtn;
@@ -59,12 +59,12 @@ public class FXMLTraderOptionPutController implements Initializable {
 	    
 	    @Override
 		public void initialize(URL location, ResourceBundle resources) {
-	    	PutOptionPriceTF.setText(FXMLTraderOptionController.putOptionPriceStatic.toString());
+	    	putOptionPriceTF.setText(FXMLTraderOptionController.putOptionPriceStatic.toString());
 			
 		}
 
 	    @FXML
-	    void ByPutOption(ActionEvent event) throws NamingException {
+	    void byPutOption(ActionEvent event) throws NamingException {
 	    	String jndiName="thewolfs_server-ear/thewolfs_server-ejb/AccountService!tn.esprit.thewolfs_server.services.AccountServiceRemote";
         	Context context;
         	context = new InitialContext();
@@ -72,7 +72,7 @@ public class FXMLTraderOptionPutController implements Initializable {
 			proxy = (AccountServiceRemote) context.lookup(jndiName);
 			Integer idTraderConnected=Session.getUser().getId();
 			List<Account> accounts= proxy.findAllAccountByTrader(idTraderConnected);
-			amountAccountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));;
+			amountAccountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         	currencyAccountCol.setCellValueFactory(new PropertyValueFactory<>("currency"));
         	isActiveAccountCol.setCellValueFactory(new PropertyValueFactory<>("isActive"));
             ObservableList<Account> items = FXCollections.observableArrayList(accounts);
