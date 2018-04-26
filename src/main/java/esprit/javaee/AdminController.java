@@ -144,8 +144,8 @@ public class AdminController implements Initializable {
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 			
 			Options option = new Options();
-			
-option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
+//Commentaire 3			
+//option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
 
 
 proxy.addOption(option);
@@ -168,7 +168,8 @@ System.out.println("ajout avec succes");
 		System.out.println(arr);
     	for (int i=0;i<arr.size();i++){
     	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
-    	if (Integer.parseInt(aa)>0){
+    	//Commentaire4:
+  /*  	if (Integer.parseInt(aa)>0){
         arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
     	}
     	else {
@@ -177,7 +178,7 @@ System.out.println("ajout avec succes");
     		arr.get(i).setTime_to_expiry(e);
     		
     		
-    	}
+    	}*/
     	list.add(arr.get(i));	
     	}
     

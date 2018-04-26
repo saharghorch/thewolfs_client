@@ -134,7 +134,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
 			{
 			
 				proxy.UpdateOptionCounterparty(arr.get(i).getId(),proxy.findTraderById(id_trader_co));
-				float am = (proxy.FindAmountTrader(id_trader_co)) - (arr.get(i).getPremium_price());
+				float am = (float) ((proxy.FindAmountTrader(id_trader_co)) - (arr.get(i).getPremium_price()));
 				proxy.UpdateAmount(id_trader_co, am);
 				afficher(proxy);
 				label.setText("");
@@ -211,8 +211,8 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
        	for (int i=0;i<arr.size();i++){
        	list.add(arr.get(i));	
        	}
-
-   		for (int i=0;i<arrr.size();i++){
+//Commentaire2:
+   /*		for (int i=0;i<arrr.size();i++){
    	    	String aa = proxy.TimeToExpiry(arrr.get(i).getExpiration_date());
    	    	if (Integer.parseInt(aa)>0){
    	        arrr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arrr.get(i).getExpiration_date()));
@@ -226,7 +226,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
    	    	}
    	    	list.add(arrr.get(i));	
    	    	}
-
+*/
        	date.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
        	PremiumPrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
        	StrikePrice.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));
@@ -242,8 +242,8 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
       	//	System.out.println("test");
       	 arr= proxy.findOptionsValid(Status.Valid);
       		System.out.println(arr);
-      		
-      		for (int i=0;i<arr.size();i++){
+     //Commentaire1 		
+   /*   		for (int i=0;i<arr.size();i++){
       	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
       	    	if (Integer.parseInt(aa)>0){
       	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
@@ -257,7 +257,7 @@ void OnActionMyOptions(ActionEvent event) throws IOException {
       	    	}
       	    	list1.add(arr.get(i));	
       	    	}
-          	
+          	*/
           	date1.setCellValueFactory(new PropertyValueFactory<Options, Date>("expiration_date"));
           	PremiumPrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("premium_price"));
           	StrikePrice1.setCellValueFactory(new PropertyValueFactory<Options, Float>("strike_price"));

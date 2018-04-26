@@ -163,10 +163,9 @@ ComboType.setItems(comboList);
 			OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 			
 			Options option = new Options();
-			
-option.setStrike_price(Float.parseFloat(StrikePricee.getText()));
-
-option.setPremium_price(Float.parseFloat(PemiumPrice.getText()));
+//Commentaire			
+/*option.setStrike_price(Float.parseFloat(StrikePricee.getText()));
+option.setPremium_price(Float.parseFloat(PemiumPrice.getText()));*/
 option.setType(ComboType.getValue());
 option.setAsset(assetType.get(ComboType.getSelectionModel().getSelectedIndex()));
 option.setExpiration_date(new java.util.Date(date_exp.getValue().getYear()-1900, date_exp.getValue().getMonthValue()-1, date_exp.getValue().getDayOfMonth()));
@@ -206,7 +205,8 @@ tray.showAndWait();
 	 TableOptionsAcc.getItems().clear();
 	 
 		arr= proxy.findOptionsByTrader(id_trader_co);
-		
+		//Commentaire
+/*		
 		for (int i=0;i<arr.size();i++){
 	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
 	    	if (Integer.parseInt(aa)>0){
@@ -220,7 +220,7 @@ tray.showAndWait();
 	    		
 	    	}
 	    	list.add(arr.get(i));	
-	    	}
+	    	}*/
     	assetType=proxy.findAssetType();
     	
     	for(int j=0 ; j<assetType.size() ; j++)
@@ -248,7 +248,8 @@ tray.showAndWait();
 		System.out.println(arr);
 		for (int i=0;i<arr.size();i++){
 	    	String aa = proxy.TimeToExpiry(arr.get(i).getExpiration_date());
-	    	if (Integer.parseInt(aa)>0){
+	   //Commentaire
+	    	/*	if (Integer.parseInt(aa)>0){
 	        arr.get(i).setTime_to_expiry(proxy.TimeToExpiry(arr.get(i).getExpiration_date()));
 	    	}
 	    	else {
@@ -257,7 +258,7 @@ tray.showAndWait();
 	    		arr.get(i).setTime_to_expiry(e);
 	    		
 	    		
-	    	}
+	    	}*/
 	    	list.add(arr.get(i));	
 	    	}
     	assetType=proxy.findAssetType();

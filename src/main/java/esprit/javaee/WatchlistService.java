@@ -17,16 +17,16 @@ public class WatchlistService {
 		String jndiname="thewolfs_server-ear/thewolfs_server-ejb/WatchlistService!tn.esprit.thewolfs_server.services.WatchlistServiceRemote";
 		Context context = new InitialContext();
 		WatchlistServiceRemote proxy=(WatchlistServiceRemote) context.lookup(jndiname);
-		Watchlist w=new Watchlist("InTheMoney", 1.1, 2.2);
+		/*Watchlist w=new Watchlist("InTheMoney", 1.1, 2.2);
 		Watchlist w1=new Watchlist("OutOfTheMoney", 5.9, 3.3);
 		Watchlist w2=new Watchlist("OutOfTheMoney", 1.1, 8.96);
 		Watchlist w3=new Watchlist("InTheMoney", 4.4, 7.32);
-	
+	*/
 		Watchlist w5=new Watchlist();
 	
 		w5.setId(65);
 		
-		proxy.updateWatchlist(w5);
+		//proxy.updateWatchlist(w5);
 		//proxy.addWatchlist(w);
 		//proxy.addWatchlist(w1);
 		//proxy.addWatchlist(w2);

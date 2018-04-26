@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderWatchlistController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-1.0" prefHeight="621.0" prefWidth="1394.0">
+         <children>
+            <Button fx:id="addOptionBTN" layoutX="345.0" layoutY="547.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: #2A3F54;" text="Add to my Portfolio" textFill="#fff8f8" />
+         </children>
+      </AnchorPane>
+      <Separator layoutX="13.0" layoutY="69.0" prefHeight="0.0" prefWidth="1377.0" />
+      <Label layoutX="24.0" layoutY="31.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Options Trading" />
+      <TableView fx:id="tableview" layoutX="23.0" layoutY="118.0" prefHeight="337.0" prefWidth="972.0">
+         <columns>
+            <TableColumn fx:id="underlyingPriceCol" prefWidth="139.0" text="Underlying Price (EUR) " />
+            <TableColumn fx:id="volatilityCol" prefWidth="86.99996948242188" text="Volatility (%)" />
+            <TableColumn fx:id="StrikepriceCol" minWidth="0.0" prefWidth="166.0" text="Strike Price" />
+            <TableColumn fx:id="statusCol" minWidth="0.0" prefWidth="70.0" text="Status" />
+            <TableColumn fx:id="evaluationCol" prefWidth="113.0" text="Evaluation" />
+            <TableColumn fx:id="probSuccessCol" prefWidth="131.0" text="Probability of Success" />
+            <TableColumn fx:id="timeMoneyCol" prefWidth="98.0" text="Time Money" />
+            <TableColumn fx:id="typeCol" minWidth="0.0" prefWidth="70.0" text="Type" />
+            <TableColumn fx:id="ExpiryCol" minWidth="0.0" prefWidth="97.0" text="Time To Expiry" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

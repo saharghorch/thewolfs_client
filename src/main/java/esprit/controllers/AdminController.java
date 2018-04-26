@@ -135,7 +135,7 @@ public class AdminController implements Initializable {
 			//System.out.println("eeeeeeeeeeeeeeeeeeee");
 			Options option = new Options();
 			//System.out.println(textStrikePrice.getText());
-option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
+//option.setStrike_price(Float.parseFloat(textStrikePrice.getText()));
 
 //System.out.println(option);
 proxy.addOption(option);

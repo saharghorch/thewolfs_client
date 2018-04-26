@@ -24,8 +24,9 @@ public class OptionManager {
 		OptionsRemote proxy=(OptionsRemote) context.lookup(jndiname);
 		
 		Options option = new Options();
-		option.setStrike_price(0.2f);
-		option.setPremium_price(0.4f);
+		//Commentaire
+		/*option.setStock_price(0.2d);
+		option.setPremium_price(0.4d);*/
 		option.setExpiration_date(null);
 		option.setType(Type.Call);
 		option.setStatus(Status.Canceled);
@@ -38,8 +39,9 @@ public class OptionManager {
    //int OptionId=proxy.addOption(option);
     
     Options op = new Options();
-    op.setStrike_price(22.0f);
-	op.setPremium_price(0.55f);;
+    //Commentaire
+   // op.setStrike_price(22.0f);
+//	op.setPremium_price(0.55f);;
 	op.setExpiration_date(null);
 	op.setType(Type.Put);
 	op.setStatus(Status.onHold);

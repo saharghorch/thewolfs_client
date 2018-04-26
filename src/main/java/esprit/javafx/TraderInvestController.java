@@ -93,14 +93,14 @@ public class TraderInvestController implements Initializable{
 					                                
 					             nbyears = Integer.valueOf(periodtf.getText());
 					             type =TypeRate.valueOf(yearscombo.getValue());
+					       
 					           //ajout dans la base
 					           proxy.addInterest(interest);
 					           
 					           //resultat du calcul des interets
 					            Compound = proxy.CalculCompoundInterestPrincipale(Double.valueOf(amountPTF.getText()), 0.15d,
 							         Integer.valueOf(periodtf.getText()), TypeRate.valueOf(String.valueOf(yearscombo.getValue())));
-	                          // proxy.CalculCompoundInterestPrincipale(amount, rate, period, typeRate)
-			Parent root = FXMLLoader.load(getClass().getResource("ResultCompoundInterestFuture.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("ResultCompoundInterestFuture.fxml"));
    		Scene newScene= new Scene(root);
    		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
    		window.setScene(newScene);
