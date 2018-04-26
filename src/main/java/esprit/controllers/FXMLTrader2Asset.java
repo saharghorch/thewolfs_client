@@ -90,8 +90,8 @@ public class FXMLTrader2Asset  implements Initializable {
 				
 				Integer v = new Integer(newValue);
 				data2.clear();
-				data2.setAll(asset.stream().filter(e -> e.getShares_number()>= v).collect(Collectors.toList()));
-				tableview.setItems(data2);
+				/*data2.setAll(asset.stream().filter(e -> e.getShares_number()>= v).collect(Collectors.toList()));
+				tableview.setItems(data2);*/
 				System.out.println("done");
 	     });
 		} catch (NamingException e) {
@@ -129,7 +129,7 @@ public class FXMLTrader2Asset  implements Initializable {
 	if (tableview.getSelectionModel().getSelectedItem() !=null)
 	{
 		Asset a = tableview.getSelectionModel().getSelectedItem();
-		TFsharesnumber.setText(a.getShares_number()+"");
+		//TFsharesnumber.setText(a.getShares_number()+"");
 	}
 
 }
@@ -138,7 +138,7 @@ public class FXMLTrader2Asset  implements Initializable {
 		Context ctx = new InitialContext();
 		AssetServiceRemote proxy=(AssetServiceRemote) ctx.lookup (jndiName);
 		int idAsset = tableview.getSelectionModel().getSelectedItem().getId();
-		 Asset ass = new Asset(idAsset);
+	
 		 
  }
  

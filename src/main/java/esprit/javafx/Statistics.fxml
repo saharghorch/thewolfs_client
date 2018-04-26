@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="608.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.statisticscontrollers">
+   <children>
+      <Label fx:id="head" layoutX="24.0" layoutY="15.0" prefHeight="30.0" prefWidth="201.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Options Statistics" />
+      <Separator fx:id="sep" layoutX="23.0" layoutY="79.0" prefHeight="0.0" prefWidth="1377.0" />
+      <PieChart fx:id="pie" layoutX="57.0" layoutY="133.0" prefHeight="244.0" prefWidth="282.0" />
+   </children>
+</AnchorPane>
