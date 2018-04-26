@@ -1,40 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="608.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderForumController">
+<AnchorPane prefHeight="608.0" prefWidth="1090.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderForumController">
    <children>
-      <AnchorPane prefHeight="608.0" prefWidth="1257.0">
+      <AnchorPane layoutX="-5.0" prefHeight="608.0" prefWidth="1115.0">
          <children>
-            <TableView fx:id="tableview" layoutX="56.0" layoutY="258.0" prefHeight="280.0" prefWidth="739.0">
+            <TableView fx:id="tableview" layoutX="56.0" layoutY="258.0" prefHeight="280.0" prefWidth="675.0">
                <columns>
-                  <TableColumn fx:id="descriptionStatusCol" prefWidth="407.0" text="All Status" />
-                  <TableColumn fx:id="dateStatusCol" prefWidth="120.0" text="Publication Date" />
-                  <TableColumn fx:id="likesStatusCol" minWidth="0.0" prefWidth="76.0" text="Likes" />
-                  <TableColumn fx:id="dislikesStatusCol" prefWidth="61.0" text="Dislikes" />
-                  <TableColumn fx:id="viewsStatusCol" prefWidth="70.0" text="Views" />
+                  <TableColumn fx:id="descriptionStatusCol" prefWidth="355.0" text="All Status" />
+                  <TableColumn fx:id="dateStatusCol" minWidth="0.0" prefWidth="124.0" text="Publication Date" />
+                  <TableColumn fx:id="likesStatusCol" prefWidth="55.0" text="Likes" />
+                  <TableColumn fx:id="dislikesStatusCol" prefWidth="64.0" text="Dislikes" />
+                  <TableColumn fx:id="viewsStatusCol" prefWidth="74.0" text="Views" />
                </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TableView>
-            <Button fx:id="addStatusBtn" layoutX="616.0" layoutY="128.0" mnemonicParsing="false" onAction="#addStatus" style="-fx-background-color: #2A3F54;" text="Publish a Status" textFill="#f8f8f8" />
-            <Button fx:id="updateStatusBtn" layoutX="616.0" layoutY="159.0" mnemonicParsing="false" onAction="#updateStatus" style="-fx-background-color: #2A3F54;" text="Update a Status" textFill="#f8f8f8" />
+            <Button fx:id="addStatusBtn" layoutX="716.0" layoutY="128.0" mnemonicParsing="false" onAction="#addStatus" style="-fx-background-color: #2A3F54;" text="Publish a Status" textFill="#f8f8f8" />
+            <Button fx:id="updateStatusBtn" layoutX="716.0" layoutY="159.0" mnemonicParsing="false" onAction="#updateStatus" style="-fx-background-color: #2A3F54;" text="Update a Status" textFill="#f8f8f8" />
             <Label layoutX="417.0" layoutY="134.0" text="Label" textFill="#bfbfbf12" />
-            <Button fx:id="allCommentsBtn" layoutX="265.0" layoutY="555.0" mnemonicParsing="false" onAction="#seeAllComments" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #2A3F54;" text="See All Comments" textFill="#f8f8f8">
+            <Button fx:id="allCommentsBtn" layoutX="265.0" layoutY="555.0" mnemonicParsing="false" onAction="#seeAllComments" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #2A3F54;" text="Comment Status" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="deleteStatusBtn" layoutX="617.0" layoutY="97.0" mnemonicParsing="false" onAction="#deleteStatus" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2A3F54;" text="Delete a Status" textFill="#f8f8f8" />
-            <JFXTextArea fx:id="StatusTA" labelFloat="true" layoutX="11.0" layoutY="78.0" maxWidth="602.0" minWidth="370.0" prefHeight="101.0" prefWidth="602.0" promptText="Add your status" />
-            <Label layoutX="20.0" layoutY="19.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Forum Discussion" />
+            <Button fx:id="deleteStatusBtn" layoutX="716.0" layoutY="97.0" mnemonicParsing="false" onAction="#deleteStatus" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2A3F54;" text="Delete a Status" textFill="#f8f8f8" />
+            <JFXTextArea fx:id="statusTA" labelFloat="true" layoutX="55.0" layoutY="128.0" maxWidth="602.0" minWidth="370.0" prefHeight="51.0" prefWidth="602.0" promptText="Your Status" />
+            <Button fx:id="likeStatusBtn" layoutX="766.0" layoutY="335.0" mnemonicParsing="false" onAction="#likeStatus" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #2A3F54;" text="I Like this Status" textFill="#f8f8f8" />
+            <Button fx:id="dislikeStatusBtn" layoutX="770.0" layoutY="386.0" mnemonicParsing="false" onAction="#dislikeStatus" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #2A3F54;" text="I Dislike this Status" textFill="#f8f8f8" />
          </children>
       </AnchorPane>
-      <Separator layoutX="23.0" layoutY="59.0" prefHeight="4.0" prefWidth="1213.0" />
+      <Separator layoutX="23.0" layoutY="55.0" prefHeight="9.0" prefWidth="1089.0" />
+      <JFXToolbar layoutX="-1.0" minHeight="40.0" prefHeight="42.0" prefWidth="1115.0" style="-fx-min-height: 42; -fx-background-color: #222D32;">
+         <left>
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="Forum Discussion" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <Button fx:id="returnBtn" mnemonicParsing="false" onAction="#onReturn" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: #222D32;" text="Return" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </right>
+      </JFXToolbar>
    </children>
 </AnchorPane>

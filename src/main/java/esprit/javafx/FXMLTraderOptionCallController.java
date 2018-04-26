@@ -35,8 +35,7 @@ import tn.esprit.thewolfs_server.entity.Currency;
 import tn.esprit.thewolfs_server.services.AccountServiceRemote;
 import tn.esprit.thewolfs_server.services.TraderServiceRemote;
 
-//conv
-
+//Conversion
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -82,11 +81,13 @@ public class FXMLTraderOptionCallController implements Initializable {
 
 	@FXML
 	private Button byCallOptionBtn;
+	
+	@FXML
+	private Button returnBtn;
 
 	SendMail mail = new SendMail();
 
-	// conv
-	// essential URL structure is built using constants
+	// Conversion:essential URL structure is built using constants
 	public static final String ACCESS_KEY = "160ed6a739be8daf50db668b975a78df";
 	public static final String BASE_URL = "http://apilayer.net/api/";
 	public static final String ENDPOINT = "live";
@@ -123,7 +124,7 @@ public class FXMLTraderOptionCallController implements Initializable {
 		amountAccountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
 		currencyAccountCol.setCellValueFactory(new PropertyValueFactory<>("currency"));
 		isActiveAccountCol.setCellValueFactory(new PropertyValueFactory<>("isActive"));
-		
+
 		ObservableList<Account> items = FXCollections.observableArrayList(traderAccounts);
 		tableview.setItems(items);
 
@@ -135,7 +136,7 @@ public class FXMLTraderOptionCallController implements Initializable {
 		alert.setTitle("Call Option Pricing");
 		alert.setHeaderText("No option traded");
 		alert.showAndWait();
-		Parent root = FXMLLoader.load(getClass().getResource("FXMLTraderOption.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("SpaceTraderInterface.fxml"));
 		Scene newScene = new Scene(root);
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(newScene);
@@ -183,22 +184,23 @@ public class FXMLTraderOptionCallController implements Initializable {
 				isActiveAccountCol.setCellValueFactory(new PropertyValueFactory<>("isActive"));
 				ObservableList<Account> items = FXCollections.observableArrayList(traderAccounts);
 				tableview.setItems(items);
-				mail.send(proxyTrader.findTraderById(idTraderConnected).getEmail(), newAmount.toString());
+				String message=newAmount.toString()+" EUR";
+				mail.send(proxyTrader.findTraderById(idTraderConnected).getEmail(), message);
 			}
 		} else if (newValue.getCurrency().equals(Currency.USD)) {
 			// Conversion EUR/USD et refaire le même traitement précédent
 			HttpGet get = new HttpGet(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY);
 			CloseableHttpResponse response;
-		
-				response = httpClient.execute(get);
-				HttpEntity entity = response.getEntity();
-				JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
-			    Double usdeur =exchangeRates.getJSONObject("quotes").getDouble("USDEUR");
-				response.close();
-				Double conversion=1/usdeur;
-		
+
+			response = httpClient.execute(get);
+			HttpEntity entity = response.getEntity();
+			JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
+			Double usdeur = exchangeRates.getJSONObject("quotes").getDouble("USDEUR");
+			response.close();
+			Double conversion = 1 / usdeur;
+            System.out.println(conversion);
 			Float lastAmount = newValue.getAmount();
-			Float newAmount = (float) (lastAmount - (FXMLTraderOptionController.callOptionPriceStatic*conversion));
+			Float newAmount = (float) (lastAmount - (FXMLTraderOptionController.callOptionPriceStatic * conversion));
 			Account account = new Account(newAmount, newValue.getCurrency(), newValue.getIsActive());
 			Integer idTraderConnected = Session.getUser().getId();
 			account.setId(newValue.getId());
@@ -220,9 +222,18 @@ public class FXMLTraderOptionCallController implements Initializable {
 			isActiveAccountCol.setCellValueFactory(new PropertyValueFactory<>("isActive"));
 			ObservableList<Account> items = FXCollections.observableArrayList(traderAccounts);
 			tableview.setItems(items);
-			mail.send(proxyTrader.findTraderById(idTraderConnected).getEmail(), newAmount.toString());
+			String message=newAmount.toString()+" USD";
+			mail.send(proxyTrader.findTraderById(idTraderConnected).getEmail(),message);
 		}
 
 	}
 
+	@FXML
+	void onReturn(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("SpaceTraderInterface.fxml"));
+		Scene newScene = new Scene(root);
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(newScene);
+		window.show();
+	}
 }

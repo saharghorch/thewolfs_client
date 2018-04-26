@@ -207,10 +207,10 @@ public class FXMLAdminTraderController implements Initializable {
 				}else{
 					//Ajouter Trader + Ajouter Portfolio et l'affecter au trader
 					String jndiNamePortfolio="thewolfs_server-ear/thewolfs_server-ejb/PortfolioService!tn.esprit.thewolfs_server.services.PortfolioServiceRemote";
-					Context contextPortfolio=new InitialContext();
 					PortfolioServiceRemote proxyPortfolio=(PortfolioServiceRemote) context.lookup(jndiNamePortfolio);
 					LocalDate today = LocalDate.now();
 					java.sql.Date creationDate = java.sql.Date.valueOf(today);
+					System.out.println(creationDate);
 					Float cash=0.0f;
 					Portfolio portfolio=new Portfolio(creationDate, cash);
 					Integer idTrader=proxy.addTrader(trader);

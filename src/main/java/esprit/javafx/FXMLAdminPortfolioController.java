@@ -56,7 +56,7 @@ public class FXMLAdminPortfolioController implements Initializable {
 				List<Portfolio> portfolios;
 				portfolios=proxy.displayAllPortfolios();
 				idPortfolioCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-				creationDatePortfolioCol.setCellValueFactory(new PropertyValueFactory<>("creation_date"));
+				creationDatePortfolioCol.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
 				cashPortfolioCol.setCellValueFactory(new PropertyValueFactory<>("cash"));
 				
 				ObservableList<Portfolio> items = FXCollections.observableArrayList(portfolios);
@@ -66,12 +66,9 @@ public class FXMLAdminPortfolioController implements Initializable {
 			} catch (NamingException e) {
 				e.printStackTrace();
 			}
-			tableview.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {showdetails(newValue);}));
-	    }    
+	    }   
 
-	    private void showdetails(Portfolio newValue) {
-	 	
-		}
+	  
 
 	    @FXML
 	    void findPortfolioByCash(ActionEvent event)throws NamingException {

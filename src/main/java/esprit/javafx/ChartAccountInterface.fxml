@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="848.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.controllers.ChartAccountInterfaceController">
+<AnchorPane prefHeight="848.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.ChartAccountInterfaceController">
    <children>
       <AnchorPane layoutX="-206.0" layoutY="-182.0" prefHeight="382.0" prefWidth="406.0" />
       <PieChart fx:id="chartAccount" layoutX="86.0" layoutY="24.0" />

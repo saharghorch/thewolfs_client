@@ -59,6 +59,8 @@ public class FXMLAdminForumController implements Initializable{
 
     @FXML
     private Button allCommentsBtn;
+    
+  public  static Integer idStatus;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,24 +83,23 @@ public class FXMLAdminForumController implements Initializable{
 				
 				e.printStackTrace();
 			}
-                tableview.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-                showdetails(newValue);}));
+               
                
     }
 
 
     
-    private void showdetails(StatusTrader newValue){
-    	/*Parent root = FXMLLoader.load(getClass().getResource("FXMLAdminForumComment.fxml"));
-    	Scene newScene= new Scene(root);
-    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	window.setScene(newScene);
-    	window.show();*/
-	}
+ 
     
 
     @FXML
-    void seeAllComments(ActionEvent event) {
+    void seeAllComments(ActionEvent event) throws IOException {
+    	idStatus=tableview.getSelectionModel().getSelectedItem().getId();
+    	Parent root = FXMLLoader.load(getClass().getResource("FXMLAdminForumComment.fxml"));
+		Scene newScene = new Scene(root);
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(newScene);
+		window.show();
 
     }
 

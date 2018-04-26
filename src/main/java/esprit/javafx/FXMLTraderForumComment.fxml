@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="608.0" prefWidth="1356.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderForumCommentController">
+<AnchorPane prefHeight="608.0" prefWidth="1090.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.javafx.FXMLTraderForumCommentController">
    <children>
-      <AnchorPane prefHeight="608.0" prefWidth="1356.0">
+      <AnchorPane layoutX="29.0" prefHeight="608.0" prefWidth="1108.0">
          <children>
-            <TableView fx:id="tableview" layoutX="27.0" layoutY="203.0" prefHeight="186.0" prefWidth="739.0">
+            <TableView fx:id="tableview" layoutX="237.0" layoutY="302.0" prefHeight="280.0" prefWidth="543.0">
                <columns>
-                  <TableColumn fx:id="descriptionCommentCol" prefWidth="621.0" text="All Comments" />
-                  <TableColumn fx:id="dateCommentCol" minWidth="0.0" prefWidth="117.0" text="Publication Date" />
+                  <TableColumn fx:id="descriptionCommentCol" prefWidth="407.0" text="All Comments" />
+                  <TableColumn fx:id="dateCommentCol" prefWidth="135.0" text="Publication Date" />
                </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TableView>
-            <JFXTextArea fx:id="StatusTA" labelFloat="true" layoutX="31.0" layoutY="62.0" maxWidth="602.0" minWidth="370.0" prefHeight="101.0" prefWidth="602.0" />
-            <Button fx:id="updateCommentBtn" layoutX="179.0" layoutY="407.0" mnemonicParsing="false" onAction="#updateComment" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #2A3F54;" text="Update a Comment" textFill="#f8f8f8" />
-            <Button fx:id="deleteCommentBtn" layoutX="466.0" layoutY="407.0" mnemonicParsing="false" onAction="#deleteComment" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #2A3F54;" text="Delete a Comment" textFill="#f8f8f8" />
-            <JFXTextField fx:id="commentTF" labelFloat="true" layoutX="115.0" layoutY="494.0" maxWidth="392.0" minWidth="199.0" prefHeight="31.0" prefWidth="392.0" promptText="New Comment" />
-            <Button fx:id="addCommentBtn" layoutX="542.0" layoutY="504.0" mnemonicParsing="false" onAction="#addComment" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: #2A3F54;" text="Add New Comment" textFill="#f8f8f8" />
+            <Button fx:id="addCommentBtn" layoutX="835.0" layoutY="221.0" mnemonicParsing="false" onAction="#addComment" style="-fx-background-color: #2A3F54;" text="Publish a Comment" textFill="#f8f8f8" />
+            <Button fx:id="updateCommentBtn" layoutX="836.0" layoutY="259.0" mnemonicParsing="false" onAction="#updateComment" style="-fx-background-color: #2A3F54;" text="Update a Comment" textFill="#f8f8f8" />
+            <Label layoutX="417.0" layoutY="134.0" text="Label" textFill="#bfbfbf12" />
+            <Button fx:id="deleteCommentBtn" layoutX="834.0" layoutY="179.0" mnemonicParsing="false" onAction="#deleteComment" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #2A3F54;" text="Delete a Comment" textFill="#f8f8f8" />
+            <JFXTextArea fx:id="statusTA" editable="false" labelFloat="true" layoutX="201.0" layoutY="144.0" maxWidth="602.0" minWidth="370.0" prefHeight="42.0" prefWidth="602.0" promptText="Status Selected" />
+            <JFXTextArea fx:id="commentTA" labelFloat="true" layoutX="203.0" layoutY="225.0" maxWidth="602.0" minWidth="370.0" prefHeight="42.0" prefWidth="602.0" promptText="Your Comment" />
          </children>
       </AnchorPane>
-      <Label layoutX="30.0" layoutY="29.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Forum Discussion" />
-      <Separator layoutX="33.0" layoutY="69.0" prefHeight="4.0" prefWidth="1213.0" />
+      <Separator layoutX="2.0" layoutY="62.0" prefHeight="5.0" prefWidth="1116.0" />
+      <JFXToolbar layoutX="-1.0" minHeight="40.0" prefHeight="42.0" prefWidth="1117.0" style="-fx-min-height: 42; -fx-background-color: #222D32;">
+         <left>
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="Forum Discussion" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <Button fx:id="returnBtn" mnemonicParsing="false" onAction="#onReturn" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #222D32;" text="Return" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </right>
+      </JFXToolbar>
    </children>
 </AnchorPane>

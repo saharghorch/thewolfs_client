@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <AnchorPane fx:id="holderPane" layoutX="150.0" prefHeight="765.0" prefWidth="1219.0" />
+   </children>
+</AnchorPane>

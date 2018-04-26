@@ -19,8 +19,7 @@ import javafx.util.Duration;
 
 public class SpaceAdminController implements Initializable {
 
-    @FXML
-    private JFXButton ProfileBtn;
+    
 
     @FXML
     private JFXButton TradersBtn;
@@ -35,28 +34,27 @@ public class SpaceAdminController implements Initializable {
     private JFXButton AccountsBtn;
 
     @FXML
-    private JFXButton AlertsBtn;
-
-    @FXML
     private JFXButton ForumBtn;
 
     @FXML
     private AnchorPane holderPane;
     
-    AnchorPane profile,traders,options,portfolios,accounts,alerts,discussion;
-    
+    AnchorPane traders;
+    AnchorPane portfolios;
+    AnchorPane options;
+    AnchorPane accounts;
+    AnchorPane discussion;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
-        	 profile = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
+        	
         	 traders = FXMLLoader.load(getClass().getResource("FXMLAdminTrader.fxml"));
-             options = FXMLLoader.load(getClass().getResource("Contacts.fxml"));
+             options = FXMLLoader.load(getClass().getResource("FXMLAdminOption.fxml"));
              portfolios = FXMLLoader.load(getClass().getResource("FXMLAdminPortfolio.fxml"));
              accounts = FXMLLoader.load(getClass().getResource("FXMLAdminAccount.fxml"));
-             alerts = FXMLLoader.load(getClass().getResource("Controls.fxml"));
              discussion = FXMLLoader.load(getClass().getResource("FXMLAdminForum.fxml"));
-             setNode(profile);
+             setNode(traders);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -82,11 +80,7 @@ public class SpaceAdminController implements Initializable {
     	setNode(accounts);
     }
 
-    @FXML
-    void showAlerts(ActionEvent event) {
-    	setNode(alerts);
-    }
-
+ 
     @FXML
     void showForum(ActionEvent event) {
     	setNode(discussion);
@@ -102,10 +96,7 @@ public class SpaceAdminController implements Initializable {
     	setNode(portfolios);
     }
 
-    @FXML
-    void showProfile(ActionEvent event) {
-    	setNode(profile);
-    }
+
 
     @FXML
     void showTraders(ActionEvent event) {

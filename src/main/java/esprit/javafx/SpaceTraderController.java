@@ -27,102 +27,75 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-
 public class SpaceTraderController implements Initializable {
 
-	 @FXML
-	    private JFXButton OptionsBtn;
+	@FXML
+	private JFXButton OptionsBtn;
 
-	    @FXML
-	    private JFXButton PricingBtn;
+	@FXML
+	private JFXButton PortfolioBtn;
 
-	    @FXML
-	    private JFXButton ProfileBtn;
+	@FXML
+	private JFXButton AccountsBtn;
 
-	    @FXML
-	    private JFXButton PortfolioBtn;
+	@FXML
+	private JFXButton ForumBtn;
 
-	    @FXML
-	    private JFXButton AccountsBtn;
+	@FXML
+	private AnchorPane holderPane;
 
-	    @FXML
-	    private JFXButton AlertsBtn;
+	AnchorPane options;
+	AnchorPane accounts;
+	AnchorPane discussion;
+	AnchorPane portfolio;
 
-	    @FXML
-	    private JFXButton ForumBtn;
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
 
-	    @FXML
-	    private AnchorPane holderPane;
-    
-    AnchorPane options,pricing,profile,portfolio,accounts,alerts,discussion;
-  
+		try {
+			options = FXMLLoader.load(getClass().getResource("FXMLTraderOption.fxml"));
+			portfolio = FXMLLoader.load(getClass().getResource("FXMLTraderPortfolio.fxml"));
+			accounts = FXMLLoader.load(getClass().getResource("FXMLTraderAccount.fxml"));
+			discussion = FXMLLoader.load(getClass().getResource("FXMLTraderForum.fxml"));
+			setNode(options);
+		} catch (IOException ex) {
+			Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    
-        try {
-             options = FXMLLoader.load(getClass().getResource("FXMLTraderOption.fxml"));
-             pricing = FXMLLoader.load(getClass().getResource("PricingInterface.fxml"));
-             profile = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-             portfolio = FXMLLoader.load(getClass().getResource("FXMLTraderPortfolio.fxml"));
-             accounts = FXMLLoader.load(getClass().getResource("FXMLTraderAccount.fxml"));
-             alerts = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-             discussion = FXMLLoader.load(getClass().getResource("FXMLTraderForum.fxml"));
-             setNode(profile);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+	}
 
-    }
+	// Set selected node to a content holder
+	private void setNode(Node node) {
+		holderPane.getChildren().clear();
+		holderPane.getChildren().add((Node) node);
 
-    //Set selected node to a content holder
-    private void setNode(Node node) {
-        holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+		FadeTransition ft = new FadeTransition(Duration.millis(1500));
+		ft.setNode(node);
+		ft.setFromValue(0.1);
+		ft.setToValue(1);
+		ft.setCycleCount(1);
+		ft.setAutoReverse(false);
+		ft.play();
+	}
 
-        FadeTransition ft = new FadeTransition(Duration.millis(1500));
-        ft.setNode(node);
-        ft.setFromValue(0.1);
-        ft.setToValue(1);
-        ft.setCycleCount(1);
-        ft.setAutoReverse(false);
-        ft.play();
-    }
-    @FXML
-    void showAccounts(ActionEvent event) {
-    	setNode(accounts);
-    }
+	@FXML
+	void showAccounts(ActionEvent event) {
+		setNode(accounts);
+	}
 
-    @FXML
-    void showAlerts(ActionEvent event) {
-    	setNode(alerts);
-    }
+	@FXML
+	void showForum(ActionEvent event) {
+		setNode(discussion);
+	}
 
-    @FXML
-    void showForum(ActionEvent event) {
-    	setNode(discussion);
-    }
+	@FXML
+	void showOptions(ActionEvent event) {
+		setNode(options);
+	}
 
-    @FXML
-    void showOptions(ActionEvent event) {
-    	setNode(options);
-    }
-
-    @FXML
-    void showPortfolio(ActionEvent event) {
-    	setNode(portfolio);
-    }
-
-    @FXML
-    void showPricing(ActionEvent event) {
-    	setNode(pricing);
-    }
-
-    @FXML
-    void showProfile(ActionEvent event) {
-    	setNode(profile);
-    }
-        
-    
+	@FXML
+	void showPortfolio(ActionEvent event) {
+		setNode(portfolio);
+	}
 
 }

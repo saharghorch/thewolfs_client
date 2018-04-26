@@ -25,14 +25,6 @@
       <VBox layoutY="40.0" prefHeight="720.0" prefWidth="140.0" style="-fx-background-color: #2A3F54;">
          <children>
             <Label prefHeight="60.0" prefWidth="140.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="INTELLiXX" />
-            <JFXButton fx:id="ProfileBtn" layoutX="10.0" layoutY="193.0" onAction="#showProfile" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Profile" textFill="#a1aec4">
-               <font>
-                  <Font name="Roboto Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="#a1aec4" glyphName="USER" size="17.0" wrappingWidth="43.0" />
-               </graphic>
-            </JFXButton>
             <JFXButton fx:id="TradersBtn" onAction="#showTraders" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Traders" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
@@ -63,14 +55,6 @@
                </font>
                <graphic>
                   <MaterialDesignIconView fill="#a1aec4" glyphName="VIEW_GRID" size="17.0" wrappingWidth="42.99997329711914" />
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="AlertsBtn" layoutX="10.0" layoutY="235.0" onAction="#showAlerts" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Alerts" textFill="#a1aec4">
-               <font>
-                  <Font name="Roboto Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="#a1aec4" glyphName="EXCLAMATION_TRIANGLE" size="17.0" wrappingWidth="43.0" />
                </graphic>
             </JFXButton>
             <JFXButton fx:id="ForumBtn" layoutX="10.0" layoutY="109.0" onAction="#showForum" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Discussion" textFill="#a1aec4">

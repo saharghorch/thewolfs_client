@@ -4,6 +4,7 @@ package esprit.javaee;
 
 
 import java.awt.Window.Type;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.naming.Context;
@@ -47,21 +48,26 @@ for(Account a : accounts)
 
 //System.out.println(proxy.findAccountByAmount(6000f));
 
-List<Account> accountsTrader= proxy.findAllAccountByTrader(1);
+/*List<Account> accountsTrader= proxy.findAllAccountByTrader(1);
 for(Account a : accountsTrader)
 {
 	System.out.println(a);
-}
+}*/
 
 
 String jndiNameStockOption="thewolfs_server-ear/thewolfs_server-ejb/StockOptionService!tn.esprit.thewolfs_server.services.StockOptionServiceRemote";
 Context contextStockOption=new InitialContext();
 StockOptionServiceRemote proxyStockOption=(StockOptionServiceRemote) context.lookup(jndiNameStockOption);
 
-StockOption stockOption=new StockOption(98250d,150d, 88d,"mst",tn.esprit.thewolfs_server.entity.Type.Put,Status.Valid);
+
+
+StockOption stockOption=new StockOption(2450d,120d,8d, "AMZN", tn.esprit.thewolfs_server.entity.Type.Put);
 System.out.println(proxyStockOption.addStockOption(stockOption));
 
 
+LocalDate today = LocalDate.now();
+java.sql.Date creationDate = java.sql.Date.valueOf(today);
+System.out.println(creationDate);
 
 	}
 

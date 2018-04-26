@@ -1,5 +1,6 @@
 package esprit.javafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -23,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.esprit.thewolfs_server.entity.Account;
 import tn.esprit.thewolfs_server.entity.Activity;
 import tn.esprit.thewolfs_server.entity.Currency;
@@ -48,6 +54,8 @@ public class FXMLAdminAccountController  implements Initializable{
     
     @FXML
     private TextField traderTF;
+    
+    
 
     @FXML
     private ComboBox<Currency> currencyCB;
@@ -99,7 +107,7 @@ public class FXMLAdminAccountController  implements Initializable{
 		        currencyCB.setItems(liste1);
 	        	isActiveCB.setItems(liste2);
 	        	idAccountCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-	        	amountAccountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));;
+	        	amountAccountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
 	        	currencyAccountCol.setCellValueFactory(new PropertyValueFactory<>("currency"));
 	        	isActiveAccountCol.setCellValueFactory(new PropertyValueFactory<>("isActive"));
 	        	idTraderCol.setCellValueFactory(new PropertyValueFactory<>("trader"));
@@ -145,6 +153,9 @@ public class FXMLAdminAccountController  implements Initializable{
         }
 
     }
+    
+
+
     
  
     
